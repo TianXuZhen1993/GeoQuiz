@@ -51,5 +51,8 @@ android {
 dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation(libs.bundles.activity.group)
+    implementation(libs.core.ktx)
     implementation(libs.constraintlayout)
+    implementation(libs.databinding.runtime)
 }
