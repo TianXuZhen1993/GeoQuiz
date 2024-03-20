@@ -11,7 +11,7 @@ import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 /**
- * TODO Fragment 传参，Activity 传值
+ * Fragment 传参，Activity 传值
  */
 
 fun <T> Fragment.argumentNullable() = FragmentArgumentPropertyNullable<T>()
@@ -27,7 +27,7 @@ fun <T> Activity.argument(defaultValue: T? = null) = ActivityArgumentProperty(de
 // --------------------------------------------------------------------------------------
 
 /**
- * TODO 获取的时候，给出默认值
+ *  获取的时候，给出默认值
  *
  * @param T
  * @property defaultValue

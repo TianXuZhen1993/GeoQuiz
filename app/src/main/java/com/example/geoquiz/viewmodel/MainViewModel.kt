@@ -1,5 +1,6 @@
 package com.example.geoquiz.viewmodel
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
 /**
@@ -9,9 +10,14 @@ import androidx.lifecycle.ViewModel
  * @version 1.0
  * created by 2024/3/18 18:23
  */
-class MainViewModel : ViewModel() {
-
-    override fun onCleared() {
-        super.onCleared()
+class MainViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
+    companion object {
+        const val NAME = "Name"
     }
+
+    var name: String
+        get() {
+            return savedStateHandle.get<String>(NAME) ?: ""
+        }
+        set(value) = savedStateHandle.set(NAME, value)
 }

@@ -16,7 +16,7 @@ import androidx.viewbinding.ViewBinding
 
 
 /**
- * TODO 不使用反射的代码如下,将inflate函数作为参数传递
+ *  不使用反射的代码如下,将inflate函数作为参数传递
  *
  * @param VB
  * @param inflate
@@ -29,7 +29,7 @@ fun <VB : ViewBinding> AppCompatActivity.binding(inflate: (LayoutInflater) -> VB
 }
 
 /**
- * TODO 使用反射获取inflate方法
+ *  使用反射获取inflate方法
  *
  * @param VB
  */
@@ -41,7 +41,7 @@ inline fun <reified VB : ViewBinding> AppCompatActivity.inflateBinding() = lazy 
 
 
 /**
- * TODO 获取 inflate 方法的反射，然后塞入Activity 的 layoutInflater
+ *  获取 inflate 方法的反射，然后塞入Activity 的 layoutInflater
  *
  * @param VB
  * @param layoutInflater
