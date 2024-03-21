@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commit
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding
 import com.example.geoquiz.fragment.CrimeFragment
+import com.example.geoquiz.fragment.CrimeListFragment
 import com.example.geoquiz.utils.inflateBinding
 import com.example.geoquiz.viewmodel.MainViewModel
 
@@ -21,10 +23,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
         if (currentFragment == null) {
-            val fragment = CrimeFragment()
-            supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, fragment)
-                .commit()
+            val fragment = CrimeListFragment.newInstance()
+            supportFragmentManager.commit {
+                add(R.id.fragment_container, fragment)
+            }
         }
     }
 }
