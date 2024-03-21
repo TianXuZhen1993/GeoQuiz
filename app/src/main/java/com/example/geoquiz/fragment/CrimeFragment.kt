@@ -29,17 +29,8 @@ class CrimeFragment : Fragment() {
         binding = FragmentCrimeBinding.inflate(inflater, container, false)
         binding.crimeDate.apply {
             text = crime.date.toString()
-//            isEnabled = false
-            setOnClickListener {
-                Log.d(TAG, "onCreateView: $crime")
-            }
+            isEnabled = false
         }
-        return binding.root
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "onStart: ")
         binding.crimeTitle.addTextChangedListener {
             crime.title = it.toString()
             Log.d(TAG, "onStart: ${crime.title}")
@@ -47,6 +38,6 @@ class CrimeFragment : Fragment() {
         binding.crimeSolved.setOnCheckedChangeListener { _, isChecked ->
             crime.isSolved = isChecked
         }
-        Log.d(TAG, "onStart: end ${crime.toString()}")
+        return binding.root
     }
 }
