@@ -11,13 +11,5 @@ import androidx.lifecycle.ViewModel
  * created by 2024/3/18 18:23
  */
 class MainViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
-    companion object {
-        const val NAME = "Name"
-    }
 
-    var name: String
-        get() {
-            return savedStateHandle.get<String>(NAME) ?: ""
-        }
-        set(value) = savedStateHandle.set(NAME, value)
 }
