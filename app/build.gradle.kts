@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -56,4 +57,6 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.constraintlayout)
     implementation(libs.databinding.runtime)
+    implementation(libs.bundles.room.group)
+    ksp(libs.room.ksp)
 }

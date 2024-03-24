@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,7 +37,7 @@ class CrimeListFragment : Fragment() {
         binding = FragmentCrimeListBinding.inflate(inflater, container, false)
         binding.recyclerCrimeView.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = CrimeAdapter(crimeListViewModel.crimes)
+            adapter = CrimeAdapter(crimeListViewModel.crimes, this@CrimeListFragment.requireActivity())
         }
         return binding.root
     }

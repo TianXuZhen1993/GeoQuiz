@@ -17,6 +17,7 @@ material = "1.10.0"
 activityVersion = "1.8.2"
 fragment_version = "1.6.2"
 #第三方库
+room_version = "2.6.1"
 okhttp3 = "4.11.0"
 
 junit = "4.13.2"
@@ -41,6 +42,10 @@ fragment-testing = { group = "androidx.fragment", name = "fragment-testing", ver
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 databinding_runtime = { group = "androidx.databinding", name = "databinding-runtime", version.ref = "databinding-runtime" }
 
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room_version" }
+room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room_version" }
+room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room_version" }
+
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp3" }
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -51,6 +56,7 @@ espresso-core = { group = "androidx.test.espresso", name = "espresso-core", vers
 [bundles]
 activity-group = ["activity", "activity-ktx"]
 fragment-group = ["fragment", "fragment-ktx", "fragment-testing"]
+room-group = ["room-runtime", "room-testing"]
 
 [plugins]
 com-android-library = { id = "com.android.library", version.ref = "agp" }

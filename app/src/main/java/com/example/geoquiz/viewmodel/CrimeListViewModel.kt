@@ -12,7 +12,7 @@ class CrimeListViewModel : ViewModel() {
     val crimes = mutableListOf<Crime>()
 
     init {
-        for (i in 0 until 100) {
+        for (i in 0 until 20) {
             val crime = Crime()
             crime.title = "Crime $i"
             crime.isSolved = i % 2 == 0

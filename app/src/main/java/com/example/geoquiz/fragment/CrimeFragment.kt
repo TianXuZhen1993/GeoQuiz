@@ -33,7 +33,7 @@ class CrimeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         Log.d(
             TAG,
             "onCreateView: size =${crimeListViewModel.crimes.size}" + " crimeListViewModel:" + crimeListViewModel
