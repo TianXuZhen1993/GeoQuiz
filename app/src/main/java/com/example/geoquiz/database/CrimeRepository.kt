@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import java.util.UUID
+import java.util.concurrent.Executors
 
 /**
  * @author: TXZ
@@ -13,7 +14,8 @@ import java.util.UUID
  * @date: created by 2024/3/24 21:42
  */
 class CrimeRepository private constructor(context: Context) {
-    private val migration_1_2 = object : Migration(1, 2) {
+    //升级数据库
+    private val MIGRATION_1_2 = object : Migration(1, 2) {
         override fun migrate(db: SupportSQLiteDatabase) {
 
         }
@@ -21,7 +23,7 @@ class CrimeRepository private constructor(context: Context) {
 
     private val database: CrimeDatabase =
         Room.databaseBuilder(context.applicationContext, CrimeDatabase::class.java, DATABASE_NAME)
-            .addMigrations(migration_1_2)
+            .addMigrations(MIGRATION_1_2)
             .build()
 
     private val crimeDao = database.crimeDao()
@@ -29,6 +31,22 @@ class CrimeRepository private constructor(context: Context) {
     fun getCrimes(): LiveData<List<Crime>> = crimeDao.getCrimes()
 
     fun getCrime(id: UUID): LiveData<Crime?> = crimeDao.getCrime(id)
+
+
+    private val executor = Executors.newSingleThreadExecutor()
+
+    fun updateCrime(crime: Crime) {
+        executor.execute {
+            crimeDao.updateCrime(crime)
+        }
+    }
+
+    fun addCrime(crime: Crime) {
+        executor.execute {
+            crimeDao.addCrime(crime)
+        }
+    }
+
 
     companion object {
         private var INSTANCE: CrimeRepository? = null

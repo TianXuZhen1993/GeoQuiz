@@ -66,6 +66,8 @@ class CrimeFragment : Fragment() {
             crimeTitle.setText(crime.title)
             crimeDate.text = crime.date.toString()
             crimeSolved.isChecked = crime.isSolved
+            //跳过设置动画
+            crimeSolved.jumpDrawablesToCurrentState()
         }
     }
 }
