@@ -1,8 +1,8 @@
 package com.example.geoquiz.database
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
-import com.example.geoquiz.entity.Crime
 import java.util.UUID
 
 /**
@@ -13,8 +13,8 @@ import java.util.UUID
 @Dao
 interface CrimeDao {
     @Query("SELECT * From crime")
-    fun getCrimes(): List<Crime>
+    fun getCrimes(): LiveData<List<Crime>>
 
     @Query("SELECT * From crime where id=(:id)")
-    fun getCrime(id: UUID):Crime?
+    fun getCrime(id: UUID):LiveData<Crime>?
 }

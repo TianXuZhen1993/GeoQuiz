@@ -1,14 +1,13 @@
 package com.example.geoquiz.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.geoquiz.databinding.ListItemCrimeBinding
-import com.example.geoquiz.entity.Crime
+import com.example.geoquiz.database.Crime
+import java.util.UUID
 
 
 /**
@@ -16,8 +15,18 @@ import com.example.geoquiz.entity.Crime
  * @version: 1.0
  * @date: created by 2024/3/21 23:52
  */
-class CrimeAdapter(var crimes: MutableList<Crime>, val context: Context) :
+class CrimeAdapter(private var crimes: List<Crime>, val context: Context) :
     RecyclerView.Adapter<CrimeAdapter.CrimeViewHolder>() {
+
+    interface Callbacks {
+        fun onCrimeSelected(crimeId: UUID)
+    }
+
+    private var callbacks: Callbacks? = null
+
+    fun setCallBack(callbacks: Callbacks) {
+        this.callbacks = callbacks
+    }
 
     inner class CrimeViewHolder(private val binding: ListItemCrimeBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -25,8 +34,7 @@ class CrimeAdapter(var crimes: MutableList<Crime>, val context: Context) :
 
         init {
             binding.root.setOnClickListener {
-                Toast.makeText(context, "点击了 ${crime.title}", Toast.LENGTH_SHORT)
-                    .show()
+                callbacks?.onCrimeSelected(crime.id)
             }
         }
 
@@ -48,5 +56,10 @@ class CrimeAdapter(var crimes: MutableList<Crime>, val context: Context) :
 
     override fun onBindViewHolder(holder: CrimeViewHolder, position: Int) {
         holder.bind(crimes[position])
+    }
+
+    fun setData(crimes: List<Crime>) {
+        this.crimes = crimes
+        notifyDataSetChanged()
     }
 }

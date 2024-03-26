@@ -1,8 +1,6 @@
 package com.example.geoquiz.fragment
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +8,11 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import com.example.geoquiz.databinding.FragmentCrimeBinding
-import com.example.geoquiz.entity.Crime
+import com.example.geoquiz.database.Crime
+import com.example.geoquiz.utils.argument
 import com.example.geoquiz.viewmodel.CrimeListViewModel
+import java.util.UUID
 
 private const val TAG = "CrimeFragment"
 
@@ -29,15 +28,14 @@ class CrimeFragment : Fragment() {
     private lateinit var binding: FragmentCrimeBinding
     private val crime = Crime()
 
+    var uuid: UUID by argument()
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.d(
-            TAG,
-            "onCreateView: size =${crimeListViewModel.crimes.size}" + " crimeListViewModel:" + crimeListViewModel
-        )
         binding = FragmentCrimeBinding.inflate(inflater, container, false)
         binding.crimeDate.apply {
             text = crime.date.toString()

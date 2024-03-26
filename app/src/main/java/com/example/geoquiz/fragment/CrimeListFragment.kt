@@ -1,6 +1,8 @@
 package com.example.geoquiz.fragment
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.geoquiz.adapter.CrimeAdapter
 import com.example.geoquiz.databinding.FragmentCrimeListBinding
 import com.example.geoquiz.viewmodel.CrimeListViewModel
+import java.util.UUID
 
 private const val TAG = "CrimeListFragment"
 
@@ -18,15 +21,35 @@ private const val TAG = "CrimeListFragment"
  * @version: 1.0
  * @date: created by 2024/3/21 20:09
  */
-class CrimeListFragment : Fragment() {
-
+class CrimeListFragment : Fragment(), CrimeAdapter.Callbacks {
     private val crimeListViewModel by viewModels<CrimeListViewModel>()
     private lateinit var binding: FragmentCrimeListBinding
+    private lateinit var crimeAdapter: CrimeAdapter
 
     companion object {
         fun newInstance(): CrimeListFragment {
             return CrimeListFragment()
         }
+    }
+
+    private var callbacks: Callbacks? = null
+
+    interface Callbacks {
+        fun onCrimeSelected(crimeId: UUID)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        callbacks = context as Callbacks
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        callbacks = null
+    }
+
+    override fun onCrimeSelected(crimeId: UUID) {
+        callbacks?.onCrimeSelected(crimeId)
     }
 
     override fun onCreateView(
@@ -37,8 +60,20 @@ class CrimeListFragment : Fragment() {
         binding = FragmentCrimeListBinding.inflate(inflater, container, false)
         binding.recyclerCrimeView.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = CrimeAdapter(crimeListViewModel.crimes, this@CrimeListFragment.requireActivity())
+            crimeAdapter = CrimeAdapter(mutableListOf(), this@CrimeListFragment.requireActivity())
+            crimeAdapter.setCallBack(this@CrimeListFragment)
+            adapter = crimeAdapter
         }
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        crimeListViewModel.crimeListLiveData.observe(viewLifecycleOwner) { crimes ->
+            Log.d(TAG, "onViewCreated: ${crimes.size}")
+            (binding.recyclerCrimeView.adapter as CrimeAdapter).setData(crimes)
+        }
+    }
+
+
 }
