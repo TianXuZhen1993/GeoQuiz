@@ -14,6 +14,9 @@ import org.junit.Test
  */
 class TimeUtils {
     companion object {
+        /**
+         * 用于保存在不同线程中的SimpleDateFormat，而不用重复创建
+         */
         @JvmStatic
         private val SDF_THREAD_LOCAL = object : ThreadLocal<Map<String, SimpleDateFormat>>() {
             override fun initialValue(): Map<String, SimpleDateFormat> {

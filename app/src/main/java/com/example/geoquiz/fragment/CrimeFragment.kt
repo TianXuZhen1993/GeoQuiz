@@ -56,11 +56,16 @@ class CrimeFragment : Fragment() {
         crimeDetailViewModel.crimeLiveData.observe(viewLifecycleOwner) { crime ->
             crime?.let {
                 this.crime = crime
+                updateUI()
             }
         }
     }
 
-    private fun updateUI(){
-
+    private fun updateUI() {
+        binding.apply {
+            crimeTitle.setText(crime.title)
+            crimeDate.text = crime.date.toString()
+            crimeSolved.isChecked = crime.isSolved
+        }
     }
 }
