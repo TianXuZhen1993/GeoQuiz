@@ -1,7 +1,14 @@
 package com.example.geoquiz.viewmodel
 
+import android.service.autofill.Transformation
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.map
+import androidx.lifecycle.switchMap
+import com.example.geoquiz.database.Crime
 import com.example.geoquiz.database.CrimeRepository
+import java.util.UUID
 
 /**
  * @author: TXZ
@@ -10,5 +17,6 @@ import com.example.geoquiz.database.CrimeRepository
  */
 class CrimeListViewModel : ViewModel() {
     private val crimeRepository = CrimeRepository.get()
+
     val crimeListLiveData = crimeRepository.getCrimes()
 }

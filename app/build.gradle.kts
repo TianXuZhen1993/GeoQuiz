@@ -59,4 +59,11 @@ dependencies {
     implementation(libs.databinding.runtime)
     implementation(libs.bundles.room.group)
     ksp(libs.room.ksp)
+    implementation(libs.bundles.lifecycle.group)
+    implementation(libs.util.code)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+
+
 }
