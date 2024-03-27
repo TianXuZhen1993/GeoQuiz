@@ -38,8 +38,8 @@ android {
         jvmTarget = "17"
     }
 
-    viewBinding {
-        enable = true
+    buildFeatures {
+        viewBinding = true
     }
 
     packaging {

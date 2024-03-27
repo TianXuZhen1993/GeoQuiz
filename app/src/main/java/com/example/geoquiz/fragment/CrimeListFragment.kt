@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.geoquiz.adapter.CrimeAdapter
+import com.example.geoquiz.adapter.NewCrimeAdapter
 import com.example.geoquiz.databinding.FragmentCrimeListBinding
 import com.example.geoquiz.viewmodel.CrimeListViewModel
 import java.util.UUID
@@ -21,10 +21,10 @@ private const val TAG = "CrimeListFragment"
  * @version: 1.0
  * @date: created by 2024/3/21 20:09
  */
-class CrimeListFragment : Fragment(), CrimeAdapter.Callbacks {
+class CrimeListFragment : Fragment(), NewCrimeAdapter.Callbacks {
     private val crimeListViewModel by viewModels<CrimeListViewModel>()
     private lateinit var binding: FragmentCrimeListBinding
-    private lateinit var crimeAdapter: CrimeAdapter
+    private lateinit var crimeAdapter: NewCrimeAdapter
 
     companion object {
         fun newInstance(): CrimeListFragment {
@@ -60,7 +60,7 @@ class CrimeListFragment : Fragment(), CrimeAdapter.Callbacks {
         binding = FragmentCrimeListBinding.inflate(inflater, container, false)
         binding.recyclerCrimeView.apply {
             layoutManager = LinearLayoutManager(context)
-            crimeAdapter = CrimeAdapter(mutableListOf(), this@CrimeListFragment.requireActivity())
+            crimeAdapter = NewCrimeAdapter()
             crimeAdapter.setCallBack(this@CrimeListFragment)
             adapter = crimeAdapter
         }
@@ -70,8 +70,8 @@ class CrimeListFragment : Fragment(), CrimeAdapter.Callbacks {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         crimeListViewModel.crimeListLiveData.observe(viewLifecycleOwner) { crimes ->
-            Log.d(TAG, "onViewCreated: ${crimes.size}")
-            (binding.recyclerCrimeView.adapter as CrimeAdapter).setData(crimes)
+            Log.d(TAG, "onViewCreated: " + System.identityHashCode(crimes))
+            crimeAdapter.submitList(crimes)
         }
     }
 

@@ -1,4 +1,4 @@
-package com.tian.utilsproject.utils
+package com.example.geoquiz.utils
 
 import android.content.Context
 import android.view.Gravity

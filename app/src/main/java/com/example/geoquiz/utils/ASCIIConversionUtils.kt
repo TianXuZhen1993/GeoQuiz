@@ -1,4 +1,4 @@
-package com.tian.utilsproject.utils
+package com.example.geoquiz.utils
 
 /**
  * 进制转换工具类

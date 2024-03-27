@@ -1,9 +1,15 @@
 package com.example.geoquiz.utils
 
 import android.view.LayoutInflater
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.viewbinding.ViewBinding
+import kotlin.properties.ReadOnlyProperty
+import kotlin.reflect.KProperty
 
 
 /**
@@ -22,7 +28,7 @@ import androidx.viewbinding.ViewBinding
  * @param inflate
  * 例如：private val viewBinding by binding(ActivityMainBinding::inflate)
  */
-fun <VB : ViewBinding> AppCompatActivity.binding(inflate: (LayoutInflater) -> VB) = lazy {
+fun <VB : ViewBinding> AppCompatActivity.viewBinding(inflate: (LayoutInflater) -> VB) = lazy {
     inflate(layoutInflater).also { binding ->
         if (binding is ViewDataBinding) binding.lifecycleOwner = this
     }
@@ -49,3 +55,40 @@ inline fun <reified VB : ViewBinding> AppCompatActivity.inflateBinding() = lazy 
 inline fun <reified VB : ViewBinding> inflateBinding(layoutInflater: LayoutInflater) =
     VB::class.java.getMethod("inflate", LayoutInflater::class.java)
         .invoke(null, layoutInflater) as VB
+
+
+
+
+inline fun <reified VB : ViewBinding> Fragment.viewBinding() = FragmentBindingProperty(VB::class.java)
+
+
+class FragmentBindingProperty<VB : ViewBinding>(private val clazz: Class<VB>) :
+    ReadOnlyProperty<Fragment, VB> {
+
+    private var binding: VB? = null
+
+    @Suppress("UNCHECKED_CAST")
+    override fun getValue(thisRef: Fragment, property: KProperty<*>): VB {
+        if (binding == null) {
+            try {
+                //反射获取View的bind方法
+                binding = (clazz.getMethod("binding", View::class.java)
+                    .invoke(null, thisRef.requireView()) as VB)
+                    .also { binding ->
+                        if (binding is ViewDataBinding) binding.lifecycleOwner =
+                            thisRef.viewLifecycleOwner
+                    }
+            } catch (e: IllegalStateException) {
+                throw IllegalStateException("The property of ${property.name} has been destroyed.")
+            }
+            //Fragment摧毁时将binding置位null避免内存泄露
+            thisRef.viewLifecycleOwner.lifecycle.addObserver(object : DefaultLifecycleObserver {
+                override fun onDestroy(owner: LifecycleOwner) {
+                    binding = null
+                }
+            })
+        }
+        return binding!!
+    }
+}
+
