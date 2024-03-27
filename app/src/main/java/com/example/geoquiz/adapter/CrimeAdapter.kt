@@ -15,7 +15,7 @@ import java.util.UUID
  * @version: 1.0
  * @date: created by 2024/3/21 23:52
  */
-class CrimeAdapter(private var crimes: List<Crime>, val context: Context) :
+class CrimeAdapter(private var crimes: List<Crime>) :
     RecyclerView.Adapter<CrimeAdapter.CrimeViewHolder>() {
 
     interface Callbacks {

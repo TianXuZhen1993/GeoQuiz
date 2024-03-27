@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.geoquiz.adapter.CrimeAdapter
 import com.example.geoquiz.adapter.NewCrimeAdapter
 import com.example.geoquiz.databinding.FragmentCrimeListBinding
 import com.example.geoquiz.viewmodel.CrimeListViewModel
@@ -21,11 +22,11 @@ private const val TAG = "CrimeListFragment"
  * @version: 1.0
  * @date: created by 2024/3/21 20:09
  */
-class CrimeListFragment : Fragment(), NewCrimeAdapter.Callbacks {
+class CrimeListFragment : Fragment(), NewCrimeAdapter.Callbacks,CrimeAdapter.Callbacks {
     private val crimeListViewModel by viewModels<CrimeListViewModel>()
     private lateinit var binding: FragmentCrimeListBinding
-    private lateinit var crimeAdapter: NewCrimeAdapter
-
+//    private lateinit var crimeAdapter: NewCrimeAdapter
+    private lateinit var crimeAdapter :CrimeAdapter
     companion object {
         fun newInstance(): CrimeListFragment {
             return CrimeListFragment()
@@ -60,7 +61,7 @@ class CrimeListFragment : Fragment(), NewCrimeAdapter.Callbacks {
         binding = FragmentCrimeListBinding.inflate(inflater, container, false)
         binding.recyclerCrimeView.apply {
             layoutManager = LinearLayoutManager(context)
-            crimeAdapter = NewCrimeAdapter()
+            crimeAdapter = CrimeAdapter(mutableListOf())
             crimeAdapter.setCallBack(this@CrimeListFragment)
             adapter = crimeAdapter
         }
@@ -70,8 +71,8 @@ class CrimeListFragment : Fragment(), NewCrimeAdapter.Callbacks {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         crimeListViewModel.crimeListLiveData.observe(viewLifecycleOwner) { crimes ->
-            Log.d(TAG, "onViewCreated: " + System.identityHashCode(crimes))
-            crimeAdapter.submitList(crimes)
+//            crimeAdapter.submitList(crimes)
+            crimeAdapter.setData(crimes)
         }
     }
 
