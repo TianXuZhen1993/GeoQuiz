@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.geoquiz.adapter.CrimeAdapter
 import com.example.geoquiz.adapter.NewCrimeAdapter
+import com.example.geoquiz.database.Crime
 import com.example.geoquiz.databinding.FragmentCrimeListBinding
 import com.example.geoquiz.viewmodel.CrimeListViewModel
 import java.util.UUID
@@ -22,11 +23,12 @@ private const val TAG = "CrimeListFragment"
  * @version: 1.0
  * @date: created by 2024/3/21 20:09
  */
-class CrimeListFragment : Fragment(), NewCrimeAdapter.Callbacks,CrimeAdapter.Callbacks {
+class CrimeListFragment : Fragment(), NewCrimeAdapter.Callbacks, CrimeAdapter.Callbacks {
     private val crimeListViewModel by viewModels<CrimeListViewModel>()
     private lateinit var binding: FragmentCrimeListBinding
-//    private lateinit var crimeAdapter: NewCrimeAdapter
-    private lateinit var crimeAdapter :CrimeAdapter
+
+    private lateinit var crimeAdapter: NewCrimeAdapter
+
     companion object {
         fun newInstance(): CrimeListFragment {
             return CrimeListFragment()
@@ -61,7 +63,7 @@ class CrimeListFragment : Fragment(), NewCrimeAdapter.Callbacks,CrimeAdapter.Cal
         binding = FragmentCrimeListBinding.inflate(inflater, container, false)
         binding.recyclerCrimeView.apply {
             layoutManager = LinearLayoutManager(context)
-            crimeAdapter = CrimeAdapter(mutableListOf())
+            crimeAdapter = NewCrimeAdapter()
             crimeAdapter.setCallBack(this@CrimeListFragment)
             adapter = crimeAdapter
         }
@@ -71,10 +73,7 @@ class CrimeListFragment : Fragment(), NewCrimeAdapter.Callbacks,CrimeAdapter.Cal
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         crimeListViewModel.crimeListLiveData.observe(viewLifecycleOwner) { crimes ->
-//            crimeAdapter.submitList(crimes)
-            crimeAdapter.setData(crimes)
+            crimeAdapter.submitList(crimes)
         }
     }
-
-
 }
