@@ -30,9 +30,7 @@ class DatePickerFragment : DialogFragment() {
             val calendar = Calendar.getInstance()
             calendar.set(year, month, dayOfMonth)
             parentFragmentManager.setFragmentResult(
-                DATE_SELECTED,
-                Bundle().apply {
-                    putSerializable(DATE_BEAN, calendar.time)
+                DATE_SELECTED, Bundle().apply { putSerializable(DATE_BEAN, calendar.time)
                 }
             )
         }
