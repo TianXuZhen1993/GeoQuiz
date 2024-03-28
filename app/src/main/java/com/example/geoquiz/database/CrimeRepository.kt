@@ -31,21 +31,21 @@ class CrimeRepository private constructor(context: Context) {
 
     private val crimeDao = database.crimeDao()
 
-//    fun getCrimes(): LiveData<List<Crime>> = crimeDao.getCrimes()
+    fun getCrimes(): LiveData<List<Crime>> = crimeDao.getCrimes()
 
-    fun getCrimes(): LiveData<List<Crime>> {
-        val crimes = mutableListOf<Crime>()
-        for (i in 0..10) {
-            Crime().apply {
-                title = "Title=$i"
-                isSolved = i % 2 == 0
-                crimes.add(this)
-            }
-        }
-        val crimesLiveData = MutableLiveData<List<Crime>>()
-        crimesLiveData.value = crimes
-        return crimesLiveData
-    }
+//    fun getCrimes(): LiveData<List<Crime>> {
+//        val crimes = mutableListOf<Crime>()
+//        for (i in 0..10) {
+//            Crime().apply {
+//                title = "Title=$i"
+//                isSolved = i % 2 == 0
+//                crimes.add(this)
+//            }
+//        }
+//        val crimesLiveData = MutableLiveData<List<Crime>>()
+//        crimesLiveData.value = crimes
+//        return crimesLiveData
+//    }
 
     fun getCrime(id: UUID): LiveData<Crime?> = crimeDao.getCrime(id)
 

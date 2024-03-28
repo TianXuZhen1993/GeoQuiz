@@ -7,14 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentResultListener
 import androidx.fragment.app.viewModels
 import com.example.geoquiz.database.Crime
 import com.example.geoquiz.databinding.FragmentCrimeBinding
+import com.example.geoquiz.dialog.DatePickerFragment
 import com.example.geoquiz.utils.argument
 import com.example.geoquiz.viewmodel.CrimeDetailViewModel
+import java.util.Date
 import java.util.UUID
 
 private const val TAG = "CrimeFragment"
+private const val DIALOG_DATE = "DIALOG_DATE"
 
 /**
  *
@@ -39,7 +43,12 @@ class CrimeFragment : Fragment() {
         binding = FragmentCrimeBinding.inflate(inflater, container, false)
         binding.crimeDate.apply {
             text = crime.date.toString()
-            isEnabled = false
+            setOnClickListener {
+                DatePickerFragment().apply {
+                    crimeDate = crime.date
+                    show(this@CrimeFragment.parentFragmentManager, DIALOG_DATE)
+                }
+            }
         }
         binding.crimeTitle.addTextChangedListener {
             crime.title = it.toString()
@@ -58,6 +67,10 @@ class CrimeFragment : Fragment() {
                 this.crime = crime
                 updateUI()
             }
+        }
+        parentFragmentManager.setFragmentResultListener(DatePickerFragment.DATE_SELECTED, this) { _, result ->
+            crime.date = result.getSerializable(DatePickerFragment.DATE_BEAN) as Date
+            updateUI()
         }
     }
 
