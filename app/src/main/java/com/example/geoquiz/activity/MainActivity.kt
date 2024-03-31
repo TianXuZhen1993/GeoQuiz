@@ -1,10 +1,10 @@
 package com.example.geoquiz.activity
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.commit
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding
@@ -36,8 +36,7 @@ class MainActivity : AppCompatActivity(), CrimeListFragment.Callbacks {
         val fragment = CrimeFragment()
         fragment.uuid = crimeId
         supportFragmentManager.commit {
-            replace(R.id.fragment_container, fragment)
-                .addToBackStack(null)
+            replace(R.id.fragment_container, fragment).addToBackStack(null)
         }
     }
 }

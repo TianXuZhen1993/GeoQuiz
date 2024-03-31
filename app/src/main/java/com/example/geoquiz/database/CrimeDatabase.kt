@@ -9,7 +9,7 @@ import androidx.room.TypeConverters
  * @version: 1.0
  * @date: created by 2024/3/24 20:25
  */
-@Database(entities = [Crime::class], version = 2, exportSchema = false)
+@Database(entities = [Crime::class], version = 3, exportSchema = false)
 @TypeConverters(CrimeTypeConverters::class)
 abstract class CrimeDatabase : RoomDatabase() {
     abstract fun crimeDao(): CrimeDao

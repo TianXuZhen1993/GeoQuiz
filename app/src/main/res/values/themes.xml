@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.GeoQuiz" parent="Theme.AppCompat.Light.DarkActionBar" />
+
+    <style name="Theme.GeoQuiz" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">#000000</item>
+    </style>
 
     <style name="AppThemeDemo" parent="Theme.AppCompat.Light.DarkActionBar">
-<!--        &lt;!&ndash; 应用的主要色调,actionBar默认使用该颜色，Toolbar导航栏的底色 &ndash;&gt;-->
-<!--        <item name="colorPrimary">@color/white</item>-->
-<!--        &lt;!&ndash; 应用的主要暗色调,statusBarColor 默认使用该颜色 &ndash;&gt;-->
-<!--        <item name="colorPrimaryDark">@color/white</item>-->
-<!--        &lt;!&ndash; 一般控件的选中效果默认采用该颜色,如 CheckBox,RadioButton,SwitchCompat，ProcessBar等&ndash;&gt;-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
+        <!--        &lt;!&ndash; 应用的主要色调,actionBar默认使用该颜色，Toolbar导航栏的底色 &ndash;&gt;-->
+        <!--        <item name="colorPrimary">@color/white</item>-->
+        <!--        &lt;!&ndash; 应用的主要暗色调,statusBarColor 默认使用该颜色 &ndash;&gt;-->
+        <!--        <item name="colorPrimaryDark">@color/white</item>-->
+        <!--        &lt;!&ndash; 一般控件的选中效果默认采用该颜色,如 CheckBox,RadioButton,SwitchCompat，ProcessBar等&ndash;&gt;-->
+        <!--        <item name="colorAccent">@color/colorAccent</item>-->
 
         <!-- 状态栏、顶部导航栏 相关-->
         <!-- status bar color -->

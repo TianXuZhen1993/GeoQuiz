@@ -18,15 +18,23 @@ import java.util.concurrent.Executors
  */
 class CrimeRepository private constructor(context: Context) {
     //升级数据库
-    private val MIGRATION_1_2 = object : Migration(1, 2) {
+    private val migration_1_2 = object : Migration(1, 2) {
         override fun migrate(db: SupportSQLiteDatabase) {
 
         }
     }
 
+    private val migration_2_3 = object : Migration(2, 3) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL("ALTER TABLE Crime ADD COLUMN suspect TEXT NOT NULL DEFAULT ''")
+        }
+    }
+
+
     private val database: CrimeDatabase =
         Room.databaseBuilder(context.applicationContext, CrimeDatabase::class.java, DATABASE_NAME)
-            .addMigrations(MIGRATION_1_2)
+            .addMigrations(migration_1_2)
+            .addMigrations(migration_2_3)
             .build()
 
     private val crimeDao = database.crimeDao()

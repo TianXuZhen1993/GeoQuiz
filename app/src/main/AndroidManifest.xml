@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
         android:name=".base.CriminalIntentApplication"
         android:allowBackup="true"
@@ -13,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeoQuiz"
         tools:targetApi="31">
+        <activity
+            android:name=".activity.TwoActivity"
+            android:exported="true" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true"
