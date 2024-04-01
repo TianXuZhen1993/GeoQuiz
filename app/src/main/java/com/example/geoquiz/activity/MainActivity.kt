@@ -1,6 +1,8 @@
 package com.example.geoquiz.activity
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +20,6 @@ private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity(), CrimeListFragment.Callbacks {
     private val binding: ActivityMainBinding by inflateBinding()
-    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

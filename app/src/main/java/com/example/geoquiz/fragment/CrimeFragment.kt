@@ -1,7 +1,12 @@
 package com.example.geoquiz.fragment
 
+import android.R.attr
+import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,7 +15,6 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.blankj.utilcode.util.PhoneUtils
 import com.example.geoquiz.R
 import com.example.geoquiz.database.Crime
 import com.example.geoquiz.databinding.FragmentCrimeBinding
@@ -20,6 +24,7 @@ import com.example.geoquiz.utils.argument
 import com.example.geoquiz.viewmodel.CrimeDetailViewModel
 import java.util.Date
 import java.util.UUID
+
 
 private const val TAG = "CrimeFragment"
 private const val DIALOG_DATE = "DIALOG_DATE"
@@ -33,8 +38,8 @@ private const val DATE_FORMAT = "EEE,MMM,dd"
  * created by 2024/3/21 11:37
  */
 class CrimeFragment : Fragment() {
-    private val crimeDetailViewModel by viewModels<CrimeDetailViewModel>()
     private lateinit var binding: FragmentCrimeBinding
+    private val crimeDetailViewModel by viewModels<CrimeDetailViewModel>()
     private var crime = Crime()
 
     var uuid: UUID by argument()
@@ -63,19 +68,24 @@ class CrimeFragment : Fragment() {
             crime.isSolved = isChecked
         }
         binding.crimeReport.setOnClickListener {
-//            Intent(Intent.ACTION_SEND).apply {
-//                type = "text/plain"
-//                putExtra(Intent.EXTRA_TEXT, getCrimeReport())
-//                putExtra(Intent.EXTRA_SUBJECT, getString(R.string.crime_report_subject))
-//            }.also {
-//                startActivity(it)
-//            }
 
-            startActivity(IntentUtils.getCallIntent("18202173767"))
         }
-
+        binding.crimeSuspect.setOnClickListener {
+            startActivityForResult(IntentUtils.getContactIntent(), 2)
+        }
         return binding.root
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode === 2 && resultCode === RESULT_OK && data != null) {
+            val contactUri: Uri? = data.data
+            arrayOf(ContactsContract.Contacts.DISPLAY_NAME)
+
+
+        }
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -107,6 +117,9 @@ class CrimeFragment : Fragment() {
             crimeSolved.isChecked = crime.isSolved
             //跳过设置动画
             crimeSolved.jumpDrawablesToCurrentState()
+            if (crime.suspect.isNotEmpty()) {
+                binding.crimeSuspect.text = crime.suspect
+            }
         }
     }
 
@@ -124,5 +137,7 @@ class CrimeFragment : Fragment() {
         }
         return getString(R.string.crime_report, crime.title, dateString, solvedString, suspect)
     }
+
+
 }
 
