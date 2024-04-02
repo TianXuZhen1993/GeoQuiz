@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.GeoQuiz" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.GeoQuiz" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:statusBarColor">#000000</item>
     </style>
 

@@ -1,7 +1,6 @@
 package com.example.geoquiz.activity
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -10,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.commit
 import com.blankj.utilcode.util.LogUtils
-import com.blankj.utilcode.util.PermissionUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding
@@ -46,8 +44,7 @@ class MainActivity : AppCompatActivity(), CrimeListFragment.Callbacks {
             }
         }
 
-    private val pickContact =
-        registerForActivityResult(ActivityResultContracts.PickContact()) { uri ->
+    private val pickContact = registerForActivityResult(ActivityResultContracts.PickContact()) { uri ->
             uri?.apply {
                 val queryFields = arrayOf(
                     ContactsContract.Contacts.DISPLAY_NAME, ContactsContract.Contacts._ID
