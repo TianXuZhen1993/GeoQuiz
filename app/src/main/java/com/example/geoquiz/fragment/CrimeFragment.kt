@@ -63,14 +63,6 @@ class CrimeFragment : Fragment() {
             crime.isSolved = isChecked
         }
         binding.crimeReport.setOnClickListener {
-//            Intent(Intent.ACTION_SEND).apply {
-//                type = "text/plain"
-//                putExtra(Intent.EXTRA_TEXT, getCrimeReport())
-//                putExtra(Intent.EXTRA_SUBJECT, getString(R.string.crime_report_subject))
-//            }.also {
-//                startActivity(it)
-//            }
-
             startActivity(IntentUtils.getCallIntent("18202173767"))
         }
 

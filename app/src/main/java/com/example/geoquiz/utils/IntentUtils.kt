@@ -5,6 +5,9 @@ import android.net.Uri
 
 
 /**
+ *
+ * Intent工具类，拨打电话、发送短信、权限设置、定位开启
+ *
  * @author: TXZ
  * @version: 1.0
  * @date: created by 2024/3/31 21:56
