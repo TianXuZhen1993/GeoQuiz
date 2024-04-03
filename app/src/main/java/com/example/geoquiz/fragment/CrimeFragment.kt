@@ -1,6 +1,7 @@
 package com.example.geoquiz.fragment
 
 import android.R.attr
+import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.database.Cursor
@@ -24,6 +25,7 @@ import com.example.geoquiz.utils.argument
 import com.example.geoquiz.viewmodel.CrimeDetailViewModel
 import java.util.Date
 import java.util.UUID
+import java.util.logging.Logger
 
 
 private const val TAG = "CrimeFragment"
@@ -71,18 +73,32 @@ class CrimeFragment : Fragment() {
 //            startActivity(IntentUtils.getCallIntent("18202173767"))
         }
         binding.crimeSuspect.setOnClickListener {
-            startActivityForResult(IntentUtils.getContactIntent(), 2)
+            startActivityForResult(Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI), CONTACT_CODE)
         }
         return binding.root
     }
 
+    val CONTACT_CODE = 2
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode === 2 && resultCode === RESULT_OK && data != null) {
+        if (requestCode == CONTACT_CODE && resultCode == RESULT_OK && data != null) {
             val contactUri: Uri? = data.data
-            arrayOf(ContactsContract.Contacts.DISPLAY_NAME)
-
-
+            val queryFields = arrayOf(
+                ContactsContract.Contacts.DISPLAY_NAME,
+                ContactsContract.Contacts.HAS_PHONE_NUMBER
+            )
+            val cursor = requireActivity().contentResolver.query(contactUri!!, queryFields, null, null, null)
+            cursor?.apply {
+                if (count == 0) return
+                cursor.moveToFirst()
+                val nameIndex = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)
+                val hasPhoneNumberIndex = cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)
+                val name = cursor.getString(nameIndex)
+                val hasPhoneNumber = cursor.getString(hasPhoneNumberIndex) == "1"
+                //TODO 业务逻辑处理
+                cursor.close()
+            }
         }
     }
 
