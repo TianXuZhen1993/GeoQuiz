@@ -44,6 +44,7 @@ object IntentUtils {
      */
 
 
+    @JvmStatic
     fun getContactIntent(): Intent {
         return Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
     }
@@ -53,6 +54,7 @@ object IntentUtils {
      *
      * @return
      */
+    @JvmStatic
     fun getLocationSettingIntent(): Intent {
         return Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS).apply {
             getNewTaskIntent(this, true)
@@ -65,6 +67,7 @@ object IntentUtils {
      * @param packName
      * @return
      */
+    @JvmStatic
     fun getPermissionSettingIntent(packName: String): Intent {
         return Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
             data = Uri.parse("package:$packName")
@@ -80,6 +83,7 @@ object IntentUtils {
      * @param message
      * @return
      */
+    @JvmStatic
     fun getSMSSendIntent(phoneNumber: String, message: String): Intent {
         return Intent(Intent.ACTION_SENDTO).apply {
             data = Uri.parse("sms:$phoneNumber")
@@ -114,6 +118,7 @@ object IntentUtils {
      * @param phoneNumber
      * @return
      */
+    @JvmStatic
     fun getDIALIntent(phoneNumber: String): Intent {
         return Intent(Intent.ACTION_DIAL).apply {
             data = Uri.parse("tel:$phoneNumber")
@@ -131,6 +136,7 @@ object IntentUtils {
      * @return
      */
     @RequiresPermission(CALL_PHONE)
+    @JvmStatic
     fun getCallIntent(phoneNumber: String): Intent {
         return Intent(Intent.ACTION_CALL).apply {
             data = Uri.parse("tel:$phoneNumber")
