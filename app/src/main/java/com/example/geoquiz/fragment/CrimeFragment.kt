@@ -3,6 +3,7 @@ package com.example.geoquiz.fragment
 import android.R.attr
 import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
+import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
@@ -44,18 +45,24 @@ class CrimeFragment : Fragment() {
     private lateinit var binding: FragmentCrimeBinding
     private val crimeDetailViewModel by viewModels<CrimeDetailViewModel>()
 
-    private val activityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-
+    private val contactNumberLauncher = registerForActivityResult(ActivityResultContracts.PickContact()) { uri ->
+        if (uri == null) return@registerForActivityResult
+        val queryFields = arrayOf(ContactsContract.Contacts.DISPLAY_NAME)
+        val cursor = requireActivity().contentResolver.query(uri, queryFields, null, null, null)
+        cursor?.apply {
+            if (count == 0) return@registerForActivityResult
+            moveToFirst()
+            crime.suspect = cursor.getString(0)
+            crimeDetailViewModel.saveCrime(crime)
+            close()
+        }
     }
+
     private var crime = Crime()
 
     var uuid: UUID by argument()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         crimeDetailViewModel.loadCrime(uuid)
         binding = FragmentCrimeBinding.inflate(inflater, container, false)
         binding.crimeDate.apply {
@@ -75,36 +82,16 @@ class CrimeFragment : Fragment() {
             crime.isSolved = isChecked
         }
         binding.crimeReport.setOnClickListener {
-//            startActivity(IntentUtils.getCallIntent("18202173767"))
+
         }
         binding.crimeSuspect.setOnClickListener {
-            startActivityForResult(Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI), CONTACT_CODE)
+            contactNumberLauncher.launch(null)
+        }
+        binding.crimeCamera.setOnClickListener {
+            val file = requireActivity().getDir("Test", Context.MODE_PRIVATE).absoluteFile.toString()
+            Log.d(TAG, "onCreateView: " + file)
         }
         return binding.root
-    }
-
-    val CONTACT_CODE = 2
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == CONTACT_CODE && resultCode == RESULT_OK && data != null) {
-            val contactUri: Uri? = data.data
-            val queryFields = arrayOf(
-                ContactsContract.Contacts.DISPLAY_NAME,
-                ContactsContract.Contacts.HAS_PHONE_NUMBER
-            )
-            val cursor = requireActivity().contentResolver.query(contactUri!!, queryFields, null, null, null)
-            cursor?.apply {
-                if (count == 0) return
-                cursor.moveToFirst()
-                val nameIndex = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)
-                val hasPhoneNumberIndex = cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)
-                val name = cursor.getString(nameIndex)
-                val hasPhoneNumber = cursor.getString(hasPhoneNumberIndex) == "1"
-                //TODO 业务逻辑处理
-                cursor.close()
-            }
-        }
     }
 
 

@@ -82,22 +82,8 @@ class MainActivity : AppCompatActivity(), CrimeListFragment.Callbacks {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         initFragment()
-        initView()
     }
 
-    private fun initView() {
-        binding.button.setOnClickListener {
-            if (ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.READ_CONTACTS
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                permissionLauncher.launch(Manifest.permission.READ_CONTACTS)
-            } else {
-                pickContact.launch(null)
-            }
-        }
-    }
 
     private fun initFragment() {
         val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
