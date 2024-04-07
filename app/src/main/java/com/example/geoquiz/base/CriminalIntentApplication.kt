@@ -1,7 +1,7 @@
 package com.example.geoquiz.base
 
 import android.app.Application
-import com.example.geoquiz.database.CrimeRepository
+import com.example.geoquiz.crime.database.CrimeRepository
 
 /**
  * @author: TXZ
