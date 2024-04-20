@@ -5,12 +5,15 @@ targetSdk = "34"
 minSdk = "24"
 versionCode = "1"
 versionName = "1.0"
-#语言库
+#插件库
 agp = "8.1.1"
-org-jetbrains-kotlin-android = "1.9.0"
+org-jetbrains-kotlin-android = "1.9.21"
+ksp = "1.9.21-1.0.15"
+kapt = "1.9.23"
+#语言库
 core-ktx = "1.9.0"
 kotlin-reflect = "1.9.0"
-databinding-runtime = "7.1.2"
+databinding-runtime = "8.0.1"
 #android开发库
 appcompat = "1.6.1"
 material = "1.10.0"
@@ -55,7 +58,6 @@ okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhtt
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
-
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 
 
@@ -66,5 +68,8 @@ room-group = ["room-runtime", "room-testing"]
 lifecycle-group = ["lifecycle-runtime", "lifecycle-liveData"]
 
 [plugins]
-com-android-library = { id = "com.android.library", version.ref = "agp" }
-org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
+application = { id = "com.android.application", version.ref = "agp" }
+library = { id = "com.android.library", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
+kotlinKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kapt" }
