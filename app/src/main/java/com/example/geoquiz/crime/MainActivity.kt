@@ -5,6 +5,8 @@ import android.provider.ContactsContract
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.fragment.app.commit
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding

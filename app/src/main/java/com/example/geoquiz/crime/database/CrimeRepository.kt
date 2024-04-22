@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import java.io.File
 import java.util.Date
 import java.util.UUID
 import java.util.concurrent.Executors
@@ -17,6 +18,22 @@ import java.util.concurrent.Executors
  * @date: created by 2024/3/24 21:42
  */
 class CrimeRepository private constructor(context: Context) {
+
+    companion object {
+        private var INSTANCE: CrimeRepository? = null
+        private const val DATABASE_NAME = "crime-database"
+
+        fun initialize(context: Context) {
+            if (INSTANCE == null) {
+                INSTANCE = CrimeRepository(context)
+            }
+        }
+
+        fun get(): CrimeRepository {
+            return INSTANCE ?: throw IllegalArgumentException("CrimeRepository must be initialized")
+        }
+    }
+
     //升级数据库
     private val migration_1_2 = object : Migration(1, 2) {
         override fun migrate(db: SupportSQLiteDatabase) {
@@ -41,20 +58,6 @@ class CrimeRepository private constructor(context: Context) {
 
     fun getCrimes(): LiveData<List<Crime>> = crimeDao.getCrimes()
 
-//    fun getCrimes(): LiveData<List<Crime>> {
-//        val crimes = mutableListOf<Crime>()
-//        for (i in 0..10) {
-//            Crime().apply {
-//                title = "Title=$i"
-//                isSolved = i % 2 == 0
-//                crimes.add(this)
-//            }
-//        }
-//        val crimesLiveData = MutableLiveData<List<Crime>>()
-//        crimesLiveData.value = crimes
-//        return crimesLiveData
-//    }
-
     fun getCrime(id: UUID): LiveData<Crime?> = crimeDao.getCrime(id)
 
 
@@ -72,20 +75,7 @@ class CrimeRepository private constructor(context: Context) {
         }
     }
 
+    private val fileDir = context.applicationContext.filesDir
 
-    companion object {
-        private var INSTANCE: CrimeRepository? = null
-        private const val DATABASE_NAME = "crime-database"
-
-        fun initialize(context: Context) {
-            if (INSTANCE == null) {
-                INSTANCE = CrimeRepository(context)
-            }
-        }
-
-        fun get(): CrimeRepository {
-            return INSTANCE ?: throw IllegalArgumentException("CrimeRepository must be initialized")
-        }
-    }
-
+    fun getPhotoFile(crime: Crime): File = File(fileDir, crime.photoFileName)
 }

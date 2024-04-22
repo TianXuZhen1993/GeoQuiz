@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
 import com.example.geoquiz.crime.database.Crime
 import com.example.geoquiz.crime.database.CrimeRepository
+import java.io.File
 import java.util.UUID
 
 /**
@@ -33,4 +34,5 @@ class CrimeDetailViewModel : ViewModel() {
         crimeRepository.updateCrime(crime)
     }
 
+    fun getPhotoFile(crime: Crime): File = crimeRepository.getPhotoFile(crime)
 }
