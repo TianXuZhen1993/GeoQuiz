@@ -62,7 +62,7 @@ dependencies {
     ksp(libs.room.ksp)
     implementation(libs.bundles.lifecycle.group)
     implementation(libs.util.code)
-
+    implementation(libs.bundles.immersionbar.group)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
 
