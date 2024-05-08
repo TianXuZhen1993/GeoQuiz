@@ -3,23 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:gravity="center"
     android:orientation="vertical">
 
-
-    <TextView
-        android:background="@color/dark_blue"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
-
-    <View
-        style="@style/dotted_line_style" />
-
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <Button
+        android:id="@+id/btn_common_dialog"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
-
+        android:layout_height="wrap_content"
+        android:text="一般dialog" />
 </LinearLayout>

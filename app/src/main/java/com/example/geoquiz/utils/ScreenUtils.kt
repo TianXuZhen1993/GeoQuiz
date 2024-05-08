@@ -4,12 +4,29 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Point
 import android.os.Build
+import com.blankj.utilcode.util.ScreenUtils
 
 
 /**
  * 获取屏幕相关参数
  */
 object ScreenUtils {
+
+    /**
+     * 获取屏幕宽度
+     *
+     * @return
+     */
+    fun getScreenWidth(): Int {
+        return ScreenUtils.getScreenWidth()
+    }
+
+    /**
+     * 获取屏幕宽高
+     *
+     * @param context
+     * @return
+     */
     fun getScreenMetrics(context: Context): Point {
         return Point().apply {
             x = context.resources.displayMetrics.widthPixels

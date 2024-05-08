@@ -1,5 +1,6 @@
 package com.example.geoquiz.crime
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
@@ -12,6 +13,9 @@ import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding
 import com.example.geoquiz.crime.fragment.CrimeFragment
 import com.example.geoquiz.crime.fragment.CrimeListFragment
+import com.example.geoquiz.dialog.InformDialog
+import com.example.geoquiz.utils.ScreenUtils
+import com.example.geoquiz.utils.SizeUtils
 import com.example.geoquiz.utils.inflateBinding
 import com.example.geoquiz.utils.toast
 import java.util.UUID
@@ -19,7 +23,7 @@ import java.util.UUID
 private const val TAG = "MainActivity"
 
 
-class MainActivity : AppCompatActivity(), CrimeListFragment.Callbacks {
+class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by inflateBinding()
 
     companion object {
@@ -35,13 +39,12 @@ class MainActivity : AppCompatActivity(), CrimeListFragment.Callbacks {
 
     private val activityLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == RESULT_OK) {
-            result.data?.also { intent ->
+            if (result.resultCode == RESULT_OK) {
+                result.data?.also { intent ->
 
+                }
             }
         }
-    }
-
 
     private val pickContact = registerForActivityResult(ActivityResultContracts.PickContact()) { uri ->
         uri?.apply {
@@ -61,7 +64,8 @@ class MainActivity : AppCompatActivity(), CrimeListFragment.Callbacks {
                 contactCursor?.apply {
                     if (contactCursor.count > 0) {
                         contactCursor.moveToFirst()
-                        val columnNumberIndex = contactCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
+                        val columnNumberIndex =
+                            contactCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
                         contactCursor.getString(columnNumberIndex).toast()
                     }
                 }
@@ -71,34 +75,19 @@ class MainActivity : AppCompatActivity(), CrimeListFragment.Callbacks {
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        initFragment()
+        initView()
     }
 
-
-    private fun initFragment() {
-        val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
-        if (currentFragment == null) {
-            val fragment = CrimeListFragment.newInstance()
-            supportFragmentManager.commit {
-                add(R.id.fragment_container, fragment)
-            }
+    private fun initView() {
+        binding.btnCommonDialog.setOnClickListener {
+            InformDialog.Build().setTitle("提示内容")
+                .setContent("账号过账，重新确认")
+                .setSureText("我知道了")
+                .create().show(supportFragmentManager)
         }
-    }
-
-    override fun onCrimeSelected(crimeId: UUID) {
-        val fragment = CrimeFragment()
-        fragment.uuid = crimeId
-        supportFragmentManager.commit {
-            replace(R.id.fragment_container, fragment).addToBackStack(null)
-        }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, "onDestroy: ")
+        SizeUtils.logScreenSize()
     }
 }
