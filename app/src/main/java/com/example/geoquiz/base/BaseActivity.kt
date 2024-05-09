@@ -12,7 +12,6 @@ import com.blankj.utilcode.util.AdaptScreenUtils
  * created by 2024/5/8 14:32
  */
 class BaseActivity : AppCompatActivity() {
-
 //    override fun getResources(): Resources {
 //        return AdaptScreenUtils.adaptWidth(super.getResources(),"")
 //    }

@@ -68,5 +68,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
 
-
+    implementation("com.github.JessYanCoding:AndroidAutoSize:v1.2.1")
 }

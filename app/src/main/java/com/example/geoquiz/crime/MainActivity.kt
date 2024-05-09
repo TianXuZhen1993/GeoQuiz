@@ -77,8 +77,19 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.i(TAG, "onCreate: ")
         setContentView(binding.root)
         initView()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG, "onStart: ")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG, "onResume: ")
     }
 
     private fun initView() {

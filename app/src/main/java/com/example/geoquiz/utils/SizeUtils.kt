@@ -5,7 +5,9 @@ import android.os.Build
 import android.util.Log
 import android.util.TypedValue
 
-
+/**
+ * px尺寸类的工具类
+ */
 object SizeUtils {
 
     private const val TAG = "SizeUtils"
@@ -71,8 +73,12 @@ object SizeUtils {
             Log.i(
                 TAG, "屏幕宽度px：${widthPixels} \n" +
                         "屏幕高度px：${heightPixels} \n" +
+                        "屏幕densityDpi：${densityDpi} \n" +
                         "屏幕density：${density} \n" +
-                        "屏幕scaledDensity:${scaledDensity}"
+                        "屏幕scaledDensity:${scaledDensity}" +
+                        "---------------------------------------------------- \n" +
+                        "屏幕宽度dp：${widthPixels / density} \n" +
+                        "屏幕高度dp:${heightPixels / density}"
             )
         }
     }

@@ -10,4 +10,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="一般dialog" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="match_parent"
+            android:background="@color/red" />
+
+        <!--        <TextView-->
+        <!--            android:layout_width="196dp"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:background="@color/dark_blue" />-->
+    </LinearLayout>
 </LinearLayout>
