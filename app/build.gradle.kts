@@ -63,10 +63,9 @@ dependencies {
     implementation(libs.bundles.room.group)
     ksp(libs.room.ksp)
     implementation(libs.bundles.lifecycle.group)
+    implementation(libs.androidAutoSize)
     implementation(libs.util.code)
     implementation(libs.bundles.immersionbar.group)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
-
-    implementation("com.github.JessYanCoding:AndroidAutoSize:v1.2.1")
 }

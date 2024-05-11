@@ -23,6 +23,7 @@ lifecycle_version = "2.7.0"
 room_version = "2.6.1"
 okhttp3 = "4.11.0"
 utilcode_version = "1.31.1"
+androidAutoSize_version = "v1.2.1"
 
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
@@ -53,6 +54,7 @@ room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "
 room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room_version" }
 room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room_version" }
 
+androidAutoSize = { group = "com.github.JessYanCoding", name = "AndroidAutoSize", version.ref = "androidAutoSize_version" }
 util_code = { group = "com.blankj", name = "utilcodex", version.ref = "utilcode_version" }
 immersionbar = { group = "com.geyifeng.immersionbar", name = "immersionbar", version.ref = "immersionbar_version" }
 immersionbar_ktx = { group = "com.geyifeng.immersionbar", name = "immersionbar-ktx", version.ref = "immersionbar_version" }
