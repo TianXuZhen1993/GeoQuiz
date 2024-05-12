@@ -1,4 +1,4 @@
-package com.example.geoquiz.utils
+package com.example.library_base.utils
 
 import android.view.LayoutInflater
 import android.view.View

@@ -53,6 +53,8 @@ android {
 }
 
 dependencies {
+    implementation(project(mapOf("path" to ":library_base")))
+    implementation(project(mapOf("path" to ":library_http")))
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.bundles.activity.group)

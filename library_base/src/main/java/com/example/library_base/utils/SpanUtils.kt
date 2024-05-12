@@ -1,4 +1,4 @@
-package com.example.geoquiz.utils
+package com.example.library_base.utils
 
 import android.text.SpannableString
 import android.text.Spanned
@@ -6,6 +6,9 @@ import android.text.style.CharacterStyle
 import android.text.style.ForegroundColorSpan
 import java.util.regex.Pattern
 
+/**
+ *  特殊文字显示工具类
+ */
 object SpanUtils {
 
 

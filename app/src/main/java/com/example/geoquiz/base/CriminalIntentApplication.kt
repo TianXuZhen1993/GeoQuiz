@@ -1,8 +1,10 @@
 package com.example.geoquiz.base
 
 import android.app.Application
+import com.example.geoquiz.BuildConfig
 import com.example.geoquiz.crime.database.CrimeRepository
 import com.example.geoquiz.utils.ActivityLifecycleCallBackImpl
+import com.example.library_base.utils.Logger
 
 /**
  * @author: TXZ
@@ -12,8 +14,9 @@ import com.example.geoquiz.utils.ActivityLifecycleCallBackImpl
 class CriminalIntentApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        val activityLifecycleCallBackImpl = ActivityLifecycleCallBackImpl()
-        registerActivityLifecycleCallbacks(activityLifecycleCallBackImpl)
-        CrimeRepository.initialize(context = this)
+//        val activityLifecycleCallBackImpl = ActivityLifecycleCallBackImpl()
+//        registerActivityLifecycleCallbacks(activityLifecycleCallBackImpl)
+//        CrimeRepository.initialize(context = this)
+        Logger.initLogUtils(BuildConfig.DEBUG)
     }
 }

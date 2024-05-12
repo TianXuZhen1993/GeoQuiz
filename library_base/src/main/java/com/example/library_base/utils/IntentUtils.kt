@@ -1,6 +1,5 @@
-package com.example.geoquiz.utils
+package com.example.library_base.utils
 
-import android.Manifest
 import android.Manifest.permission.CALL_PHONE
 import android.Manifest.permission.SEND_SMS
 import android.app.Application
