@@ -1,5 +1,6 @@
 package com.example.geoquiz.crime
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
@@ -7,7 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.example.geoquiz.databinding.ActivityMainBinding
 import com.example.geoquiz.utils.toast
 import com.example.library_base.base.BaseActivity
-import com.example.library_base.utils.SizeUtils
+import com.example.library_base.utils.Logger
 import com.example.library_base.utils.inflateBinding
 
 private const val TAG = "MainActivity"
@@ -80,9 +81,24 @@ class MainActivity : BaseActivity() {
     }
 
     private fun initView() {
+        Logger.d("1111","2222")
         binding.btnCommonDialog.setOnClickListener {
+//            SizeUtils.logScreenSize()
+            Resources.getSystem().displayMetrics.apply {
+                val message = "屏幕宽度px：${widthPixels} \n" +
+                        "屏幕高度px：${heightPixels} \n" +
+                        "屏幕densityDpi：${densityDpi} \n" +
+                        "屏幕density：${density} \n" +
+                        "屏幕scaledDensity:${scaledDensity}" +
+                        "---------------------------------------------------- \n" +
+                        "屏幕宽度dp：${widthPixels / density} \n" +
+                        "屏幕高度dp:${heightPixels / density}"
+
+               Logger.d(message)
+
+            }
 
         }
-        SizeUtils.logScreenSize()
+
     }
 }
