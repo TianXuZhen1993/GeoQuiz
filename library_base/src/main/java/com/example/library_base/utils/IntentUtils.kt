@@ -23,8 +23,8 @@ import androidx.annotation.RequiresPermission
  */
 object IntentUtils {
     /**
-     * 打开定位权限开启界面
-     * @see getLocationSettingIntent
+     *
+     * @see getLocationSettingIntent 打开定位权限开启界面
      *
      * 打开应用的权限设置界面
      * @see getPermissionSettingIntent
@@ -41,7 +41,6 @@ object IntentUtils {
      * 获取联系人
      * @see getContactIntent
      */
-
 
     @JvmStatic
     fun getContactIntent(): Intent {
