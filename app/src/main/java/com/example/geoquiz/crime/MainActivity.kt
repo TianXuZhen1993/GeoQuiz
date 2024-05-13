@@ -4,13 +4,10 @@ import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
-import com.blankj.utilcode.util.LogUtils
 import com.example.geoquiz.databinding.ActivityMainBinding
-import com.example.library_base.dialog.InformDialog
-import com.example.library_base.utils.SizeUtils
 import com.example.geoquiz.utils.toast
 import com.example.library_base.base.BaseActivity
-import com.example.library_base.utils.Logger
+import com.example.library_base.utils.SizeUtils
 import com.example.library_base.utils.inflateBinding
 
 private const val TAG = "MainActivity"
@@ -84,10 +81,7 @@ class MainActivity : BaseActivity() {
 
     private fun initView() {
         binding.btnCommonDialog.setOnClickListener {
-            InformDialog.Build().setTitle("提示内容")
-                .setContent("账号过账，重新确认")
-                .setSureText("我知道了")
-                .create().show(supportFragmentManager)
+
         }
         SizeUtils.logScreenSize()
     }
