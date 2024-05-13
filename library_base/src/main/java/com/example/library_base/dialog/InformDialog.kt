@@ -1,14 +1,12 @@
-package com.example.geoquiz.dialog
+package com.example.library_base.dialog
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.geoquiz.databinding.DialogInformBinding
+import com.example.library_base.databinding.DialogInformBinding
+import com.example.library_base.dialog.base.BaseCenterDialogFragment
 import java.io.Serializable
-
-
-private const val TAG = "InformDialog"
 
 /**
  *
@@ -18,7 +16,7 @@ private const val TAG = "InformDialog"
  * @version 1.0
  * created by 2024/5/7 13:16
  */
-class InformDialog : BaseCenterDialog() {
+class InformDialog : BaseCenterDialogFragment() {
     //dialog 的基本参数
     private var _build = Build()
     private lateinit var _informBinding: DialogInformBinding

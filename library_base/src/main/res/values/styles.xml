@@ -1,0 +1,19 @@
+<resources>
+    <!--    base dialog style 基础dialog的style-->
+    <style name="base_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <!--    base dialog style 基础center dialog的style-->
+    <style name="base_center_dialog" parent="base_dialog">
+        <!-- 模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 遮罩层 -->
+        <item name="android:backgroundDimAmount">0.5</item>
+        <!-- 半透明 -->
+        <item name="android:windowBackground">@drawable/bg_r8_white</item>
+    </style>
+</resources>

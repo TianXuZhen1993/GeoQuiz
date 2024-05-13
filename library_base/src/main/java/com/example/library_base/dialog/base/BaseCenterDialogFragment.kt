@@ -1,19 +1,26 @@
-package com.example.geoquiz.dialog
+package com.example.library_base.dialog.base
 
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import com.blankj.utilcode.util.ScreenUtils
+import com.example.library_base.R
 
 /**
  *
- *
+ * 居中显示的DialogFragment 基类
  * @author TXZ
  * @version 1.0
  * created by 2024/5/7 14:43
  */
-abstract class BaseCenterDialog : BaseDialogFragment() {
+abstract class BaseCenterDialogFragment : BaseDialogFragment() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NORMAL, R.style.base_center_dialog)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setStyle()
@@ -24,6 +31,7 @@ abstract class BaseCenterDialog : BaseDialogFragment() {
      * 设置统一样式
      */
     private fun setStyle() {
+        //默认dialog宽度为屏幕的0.8 居中显示
         dialog?.window?.apply {
             val layoutParams = attributes
             layoutParams.width = (ScreenUtils.getScreenWidth() * 0.8f).toInt()

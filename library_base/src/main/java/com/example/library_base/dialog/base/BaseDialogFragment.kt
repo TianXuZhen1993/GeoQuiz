@@ -1,15 +1,9 @@
-package com.example.geoquiz.dialog
+package com.example.library_base.dialog.base
 
-import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
-
-private const val TAG = "BaseDialogFragment"
 
 /**
  *
@@ -19,17 +13,10 @@ private const val TAG = "BaseDialogFragment"
  * created by 2024/4/26 9:56
  */
 abstract class BaseDialogFragment : DialogFragment() {
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return super.onCreateDialog(savedInstanceState)
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
+
 
     /**
      * 设置弹框是否可以取消

@@ -6,7 +6,7 @@ import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import com.blankj.utilcode.util.LogUtils
 import com.example.geoquiz.databinding.ActivityMainBinding
-import com.example.geoquiz.dialog.InformDialog
+import com.example.library_base.dialog.InformDialog
 import com.example.library_base.utils.SizeUtils
 import com.example.geoquiz.utils.toast
 import com.example.library_base.base.BaseActivity
