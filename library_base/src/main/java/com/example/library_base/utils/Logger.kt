@@ -38,3 +38,4 @@ object Logger {
         Logger.t(tag).d(any)
     }
 }
+

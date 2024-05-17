@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
+import com.blankj.utilcode.util.Utils
 import com.example.geoquiz.databinding.ActivityMainBinding
 import com.example.geoquiz.utils.toast
 import com.example.library_base.base.BaseActivity
+import com.example.library_base.utils.CoreUtils
 import com.example.library_base.utils.inflateBinding
+import com.example.library_base.utils.logD
+import com.example.library_base.utils.toast
 
 private const val TAG = "MainActivity"
 
@@ -65,7 +69,6 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         initView()
-
     }
 
     override fun onStart() {
@@ -80,7 +83,7 @@ class MainActivity : BaseActivity() {
 
     private fun initView() {
         binding.btnCommonDialog.setOnClickListener {
-
+           StringBuilder().append("tian").toast()
         }
     }
 }
