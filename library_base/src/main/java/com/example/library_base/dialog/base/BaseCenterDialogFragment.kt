@@ -2,7 +2,9 @@ package com.example.library_base.dialog.base
 
 import android.os.Bundle
 import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
 import com.blankj.utilcode.util.ScreenUtils
 import com.example.library_base.R
@@ -23,14 +25,14 @@ abstract class BaseCenterDialogFragment : BaseDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setStyle()
+        setDialogWH()
     }
 
 
     /**
-     * 设置统一样式
+     * 设置Dialog的宽高样式，默认是0.8的宽，自适应高
      */
-    private fun setStyle() {
+    open fun setDialogWH() {
         //默认dialog宽度为屏幕的0.8 居中显示
         dialog?.window?.apply {
             val layoutParams = attributes

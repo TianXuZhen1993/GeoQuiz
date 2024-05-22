@@ -13,6 +13,8 @@ import androidx.fragment.app.FragmentManager
  * created by 2024/4/26 9:56
  */
 abstract class BaseDialogFragment : DialogFragment() {
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
@@ -28,7 +30,7 @@ abstract class BaseDialogFragment : DialogFragment() {
     }
 
 
-    fun show(superFragmentManager: FragmentManager) {
-        show(superFragmentManager, javaClass.simpleName)
+    fun show(fm: FragmentManager) {
+        show(fm, javaClass.simpleName)
     }
 }

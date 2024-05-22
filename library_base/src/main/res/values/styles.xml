@@ -14,6 +14,6 @@
         <!-- 遮罩层 -->
         <item name="android:backgroundDimAmount">0.5</item>
         <!-- 半透明 -->
-        <item name="android:windowBackground">@drawable/bg_r8_white</item>
+<!--        <item name="android:windowBackground">@drawable/bg_r8_white</item>-->
     </style>
 </resources>

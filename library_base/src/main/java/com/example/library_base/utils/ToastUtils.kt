@@ -18,8 +18,7 @@ object ToastUtils {
     }
 
     fun showShort(@StringRes strRes: Int) {
-        val text = content.resources.getString(strRes)
-        showShort(text)
+        Toast.makeText(content, strRes, Toast.LENGTH_SHORT).show()
     }
 
     fun showLong(text: CharSequence) {
@@ -27,7 +26,6 @@ object ToastUtils {
     }
 
     fun showLong(@StringRes strRes: Int) {
-        val text = content.resources.getString(strRes)
-        showLong(text)
+        Toast.makeText(content, strRes, Toast.LENGTH_LONG).show()
     }
 }

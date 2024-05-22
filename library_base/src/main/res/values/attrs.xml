@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HorizontalProgressBar">
+        <!--未完成进度条颜色-->
+        <attr name="normalColor" format="color" />
+        <!--已完成进度条颜色-->
+        <attr name="reachColor" format="color" />
+        <!--已完成进度颜色初始颜色-->
+        <attr name="reachStartColor" format="color" />
+        <!--已完成颜色结束颜色-->
+        <attr name="reachEndColor" format="color" />
+        <!--是否使用颜色渐变-->
+        <attr name="reachShadowIsUsed" format="boolean" />
+        <!--进度条高度-->
+        <attr name="barHeight" format="dimension" />
+        <!--进度条的值-->
+        <attr name="HorizontalProgress" format="float" />
+        <!--        是否开启动画，默认开启-->
+        <attr name="isAnim" format="boolean" />
+        <!--        进度条动画，默认1000（1s）-->
+        <attr name="animDuration" format="integer" />
+    </declare-styleable>
+</resources>
