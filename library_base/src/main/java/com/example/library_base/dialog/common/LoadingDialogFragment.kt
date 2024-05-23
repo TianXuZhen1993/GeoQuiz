@@ -12,7 +12,7 @@ import com.example.library_base.dialog.base.BaseCenterDialogFragment
 
 /**
  *
- *
+ * 加载loading dialog
  * @author TXZ
  * @version 1.0
  * created by 2024/5/22 15:50

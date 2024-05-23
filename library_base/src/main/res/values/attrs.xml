@@ -20,4 +20,26 @@
         <!--        进度条动画，默认1000（1s）-->
         <attr name="animDuration" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="ShineTextView">
+        <!--        闪光方式-->
+        <attr name="shineType">
+            <!--            流光效果-->
+            <enum name="shine" value="0" />
+            <!--            颜色替换效果，原先是一个颜色，经过流光替换成另一种颜色，必须设置开始颜色，跟结束颜色-->
+            <enum name="replace" value="1" />
+        </attr>
+        <!--        开始颜色-->
+        <attr name="startColor" format="color" />
+        <!--        中间颜色-->
+        <attr name="midColor" format="color" />
+        <!--        结束颜色-->
+        <attr name="endColor" format="color" />
+        <!--        是否开启流光效果-->
+        <attr name="isShine" format="boolean" />
+        <!--        设置流光时间-->
+        <attr name="shineDuration" format="integer" />
+        <!--        流光次数-->
+        <attr name="shineCount" format="integer" />
+    </declare-styleable>
 </resources>

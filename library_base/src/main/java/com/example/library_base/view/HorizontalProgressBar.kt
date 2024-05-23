@@ -18,12 +18,6 @@ import com.example.library_base.R
  * 水平进度条
  */
 class HorizontalProgressBar : View {
-    constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        obtainAttributes(attrs!!)
-    }
-
     //底层颜色
     private var mNormalColor = Color.parseColor("#F0F0F0")
 
@@ -66,21 +60,31 @@ class HorizontalProgressBar : View {
     //动画时长 1000 ,1s
     private var animDuration: Int = 1000
 
+    constructor(context: Context) : this(context, null)
+
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        obtainAttributes(attrs!!)
+    }
+
 
     private fun obtainAttributes(attrs: AttributeSet) {
-        val ta = context.obtainStyledAttributes(attrs, R.styleable.HorizontalProgressBar)
-        mHorizontalProgress = ta.getFloat(R.styleable.HorizontalProgressBar_HorizontalProgress, mHorizontalProgress)
-        mNormalColor = ta.getColor(R.styleable.HorizontalProgressBar_normalColor, mNormalColor)
-        mReachColor = ta.getColor(R.styleable.HorizontalProgressBar_reachColor, mReachColor)
-        mReachColorShadowIsUsed =
-            ta.getBoolean(R.styleable.HorizontalProgressBar_reachShadowIsUsed, mReachColorShadowIsUsed)
-        mReachBarStartColor = ta.getColor(R.styleable.HorizontalProgressBar_reachStartColor, mReachBarStartColor)
-        mReachBarEndColor = ta.getColor(R.styleable.HorizontalProgressBar_reachEndColor, mReachBarEndColor)
-        mBarHeight = ta.getDimension(R.styleable.HorizontalProgressBar_barHeight, mBarHeight)
-        mRoundPadding = mBarHeight / 2
-        isAnim = ta.getBoolean(R.styleable.HorizontalProgressBar_isAnim, true)
-        animDuration = ta.getInteger(R.styleable.HorizontalProgressBar_animDuration, animDuration)
-        ta.recycle()
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.HorizontalProgressBar)
+        typedArray.apply {
+            mHorizontalProgress = getFloat(R.styleable.HorizontalProgressBar_HorizontalProgress, mHorizontalProgress)
+            mNormalColor = getColor(R.styleable.HorizontalProgressBar_normalColor, mNormalColor)
+            mReachColor = getColor(R.styleable.HorizontalProgressBar_reachColor, mReachColor)
+            mReachColorShadowIsUsed =
+                getBoolean(R.styleable.HorizontalProgressBar_reachShadowIsUsed, mReachColorShadowIsUsed)
+            mReachBarStartColor = getColor(R.styleable.HorizontalProgressBar_reachStartColor, mReachBarStartColor)
+            mReachBarEndColor = getColor(R.styleable.HorizontalProgressBar_reachEndColor, mReachBarEndColor)
+            mBarHeight = getDimension(R.styleable.HorizontalProgressBar_barHeight, mBarHeight)
+            mRoundPadding = mBarHeight / 2
+            isAnim = getBoolean(R.styleable.HorizontalProgressBar_isAnim, true)
+            animDuration = getInteger(R.styleable.HorizontalProgressBar_animDuration, animDuration)
+        }
+        typedArray.recycle()
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
