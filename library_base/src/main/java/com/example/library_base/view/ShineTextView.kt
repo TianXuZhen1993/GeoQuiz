@@ -1,6 +1,5 @@
 package com.example.library_base.view
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -9,7 +8,6 @@ import android.graphics.Matrix
 import android.graphics.Shader
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.core.graphics.toColor
 import com.example.library_base.R
 
 
@@ -24,17 +22,18 @@ class ShineTextView : AppCompatTextView {
     //是否开启流光，默认开启
     private var isShine = true
 
-    //默认是流光效果  0 流光  1 替换
+    //默认是流光效果  0 流光  1 注入效果
     private var shineType = 0
-
-    //开始，中间，结束
+    //流光效果下字体流动次数
+    private var shineCount: Int = 3
+    //注入效果 开始，中间，结束
     private var startColor: Int = Color.BLACK
     private var shineColor: Int = Color.WHITE
     private var endColor: Int = Color.BLACK
-
-    private var shineCount: Int = 3
+    //一次动效时长
     private var shineDuration: Int = 2000
-    private var count: Int = 0 //自行运行动画次数
+
+    private var _count: Int = 0 //自行运行动画次数
 
     private lateinit var mLinearGradient: LinearGradient
     private var mGradientMatrix: Matrix = Matrix()
@@ -43,7 +42,9 @@ class ShineTextView : AppCompatTextView {
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context, attrs, defStyleAttr
+    ) {
         obtainAttributes(attrs!!)
     }
 
@@ -57,7 +58,8 @@ class ShineTextView : AppCompatTextView {
             shineColor = typedArray.getColor(R.styleable.ShineTextView_midColor, shineColor)
             endColor = typedArray.getColor(R.styleable.ShineTextView_endColor, endColor)
             shineCount = typedArray.getInt(R.styleable.ShineTextView_shineCount, shineCount)
-            shineDuration = typedArray.getInt(R.styleable.ShineTextView_shineDuration, shineDuration)
+            shineDuration =
+                typedArray.getInt(R.styleable.ShineTextView_shineDuration, shineDuration)
         }
         typedArray.recycle()
     }
@@ -71,19 +73,29 @@ class ShineTextView : AppCompatTextView {
                 0 -> {
                     //流光效果
                     mLinearGradient = LinearGradient(
-                        0f, 0f, (mViewWidth / 8).toFloat(),
-                        0f, intArrayOf(currentTextColor, shineColor, currentTextColor), null, Shader.TileMode.CLAMP
+                        0f,
+                        0f,
+                        (mViewWidth / 8).toFloat(),
+                        0f,
+                        intArrayOf(currentTextColor, shineColor, currentTextColor),
+                        null,
+                        Shader.TileMode.CLAMP
                     )
                 }
 
                 1 -> {
                     mLinearGradient = LinearGradient(
-                        0f, 0f, (mViewWidth / 8).toFloat(),
-                        0f, intArrayOf(endColor, shineColor, startColor), null, Shader.TileMode.CLAMP
+                        0f,
+                        0f,
+                        (mViewWidth / 8).toFloat(),
+                        0f,
+                        intArrayOf(endColor, shineColor, startColor),
+                        null,
+                        Shader.TileMode.CLAMP
                     )
                 }
             }
-            paint.setShader(mLinearGradient)
+            paint.shader = mLinearGradient
         }
     }
 
@@ -94,11 +106,18 @@ class ShineTextView : AppCompatTextView {
         mTranslate += mViewWidth / (shineDuration / 50)
         if (mTranslate > 1.2 * mViewWidth) {
             mTranslate = -mViewWidth / 5
-            count++
+            _count++
         }
         mGradientMatrix.setTranslate(mTranslate.toFloat(), 0f)
         mLinearGradient.setLocalMatrix(mGradientMatrix)
-        if (shineType == 0 && count < shineCount) postInvalidateDelayed(50)
-        if (shineType == 1 && count < 1) postInvalidateDelayed(50)
+        when {
+            shineType == 0 && _count < shineCount -> postInvalidateDelayed(50)
+            shineType == 1 && _count < 1 -> postInvalidateDelayed(50)
+            else -> {
+                mGradientMatrix.setTranslate((1.2 * mViewWidth).toFloat(), 0f)
+                mLinearGradient.setLocalMatrix(mGradientMatrix)
+            }
+        }
     }
+
 }

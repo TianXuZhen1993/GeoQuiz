@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#E5D7D7"
     android:orientation="vertical">
 
     <com.example.library_base.view.ShineTextView
-        android:id="@+id/btn_common_dialog"
+        android:id="@+id/replace"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:gravity="center"
-        android:text="大萨达打扫打扫打扫"
+        android:text="欢迎启动原神"
         android:textSize="28sp"
-        app:startColor="@color/white"
         app:endColor="@color/black"
-        app:shineType="replace" />
+        app:shineType="replace"
+        app:startColor="@color/white" />
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="天下无贼"
-        android:textColor="#101010"
-        android:textSize="18sp" />
+    <com.example.library_base.view.ShineTextView
+        android:id="@+id/shine"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="欢迎启动原神"
+        android:textColor="@color/black"
+        android:textSize="28sp" />
 </LinearLayout>

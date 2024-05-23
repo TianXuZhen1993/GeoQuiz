@@ -38,12 +38,12 @@ class MainActivity : BaseActivity() {
 
 
     private fun initView() {
-        binding.btnCommonDialog.setOnClickListener {
-            "点击成功".toast()
-        }
+//        binding.btnCommonDialog.setOnClickListener {
+//            "点击成功".toast()
+//        }
 //        binding.tv.setSpanClick("天下无贼好人", "贼好", Color.BLUE) {
 //            "点击成功".toast()
 //        }
-        binding.tv.text = SpanUtils.setTextSize("天下无贼", "贼",22)
+//        binding.tv.text = SpanUtils.setTextSize("天下无贼", "贼",22)
     }
 }
