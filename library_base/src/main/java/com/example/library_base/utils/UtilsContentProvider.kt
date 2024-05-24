@@ -5,6 +5,7 @@ import android.content.ContentProvider
 import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
+import com.example.library_base.BuildConfig
 
 /**
  *
@@ -20,6 +21,7 @@ internal class UtilsContentProvider : ContentProvider() {
 
     override fun onCreate(): Boolean {
         application = context as Application
+        Logger.initLogUtils(BuildConfig.DEBUG)
         return true
     }
 
