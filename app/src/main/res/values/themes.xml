@@ -2,7 +2,8 @@
 <resources>
 
     <style name="Theme.GeoQuiz" parent="Theme.AppCompat.Light.NoActionBar">
-
+        <item name="colorAccent">#4E9BF9</item>
+        <item name="colorPrimary">#4E9BF9</item>
     </style>
 
 

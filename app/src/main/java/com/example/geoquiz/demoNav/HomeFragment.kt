@@ -16,9 +16,14 @@ import com.example.library_base.utils.viewBinding
  * created by 2024/5/24 14:33
  */
 class HomeFragment : BaseFragment() {
-    private val binding: FragmentHomeBinding by viewBinding()
+//    private val binding: FragmentHomeBinding by viewBinding()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

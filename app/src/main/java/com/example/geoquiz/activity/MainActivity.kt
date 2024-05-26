@@ -1,18 +1,19 @@
 package com.example.geoquiz.activity
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.Gravity
-import com.blankj.utilcode.util.ToastUtils
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding
+import com.example.geoquiz.demoNav.HomeFragment
+import com.example.geoquiz.demoNav.MineFragment
+import com.example.geoquiz.demoNav.WorkFragment
 import com.example.library_base.base.BaseActivity
 import com.example.library_base.utils.inflateBinding
-import com.example.library_base.utils.toast
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 
 class MainActivity : BaseActivity() {
     private val binding: ActivityMainBinding by inflateBinding()
+    private val fragments = mutableListOf(HomeFragment(), WorkFragment(), MineFragment())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,28 +21,37 @@ class MainActivity : BaseActivity() {
         initView()
     }
 
-    @SuppressLint("RestrictedApi")
     private fun initView() {
         binding.navView.itemIconTintList = null
-        binding.navView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> {
-                    "home".toast()
+        supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragments[0])
+            .commit()
+        binding.navView.setOnItemSelectedListener {
+            showFragment(it.itemId)
+            true
+        }
+//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
+//        binding.navView.setupWithNavController(navHostFragment.navController)
+    }
 
-                }
-
-                R.id.nav_work -> {
-                    "work".toast()
-                }
-
-                R.id.nav_mine -> {
-                    "mine".toast()
-                }
-
-                else -> {}
+    private fun showFragment(itemId: Int) {
+        val fragment = when (itemId) {
+            R.id.page_home -> {
+                fragments[0]
             }
 
-            return@setOnItemSelectedListener true
+            R.id.page_work -> {
+                fragments[1]
+            }
+
+            R.id.page_mine -> {
+                fragments[2]
+            }
+
+            else -> {
+                fragments[0]
+            }
         }
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment)
+            .commit()
     }
 }

@@ -7,7 +7,7 @@ versionCode = "1"
 versionName = "1.0"
 #语言库
 agp = "8.1.1"
-org-jetbrains-kotlin-android = "1.9.21"
+org-jetbrains-kotlin-android = "1.9.23"
 core-ktx = "1.10.1"
 ksp = "1.9.21-1.0.15"
 kapt = "1.9.23"
@@ -19,6 +19,7 @@ material = "1.12.0"
 activity_version = "1.8.2"
 fragment_version = "1.6.2"
 lifecycle_version = "2.7.0"
+navgation_version = "2.7.7"
 #第三方库
 room_version = "2.6.1"
 okhttp3 = "4.11.0"
@@ -51,6 +52,9 @@ databinding_runtime = { group = "androidx.databinding", name = "databinding-runt
 lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle_version" }
 lifecycle-liveData = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle_version" }
 
+navgation_fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navgation_version" }
+navgation_ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navgation_version" }
+
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room_version" }
 room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room_version" }
 room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room_version" }
@@ -74,6 +78,7 @@ activity-group = ["activity", "activity-ktx"]
 fragment-group = ["fragment", "fragment-ktx", "fragment-testing"]
 room-group = ["room-runtime", "room-testing"]
 lifecycle-group = ["lifecycle-runtime", "lifecycle-liveData"]
+navgation-group = ["navgation_fragment", "navgation_ui"]
 
 immersionbar-group = ["immersionbar", "immersionbar_ktx"]
 

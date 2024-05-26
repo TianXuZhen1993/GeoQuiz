@@ -7,4 +7,12 @@
         <item name="android:layout_height">2dp</item>
         <item name="android:background">@drawable/shape_split_dotted_line</item>
     </style>
+
+    <style name="CommonBottomNavigation" parent="Widget.Design.BottomNavigationView">
+        <!--        按下时水波纹效果 , 去除水波纹-->
+        <!--        <item name="itemRippleColor">@null</item>-->
+        <!--        item图片大小-->
+        <!--        <item name="itemIconSize">24dp</item>-->
+
+    </style>
 </resources>

@@ -44,7 +44,7 @@ private const val DATE_FORMAT = "EEE,MMM,dd"
  */
 class CrimeFragment : Fragment() {
     private lateinit var binding: FragmentCrimeBinding
-    private val crimeDetailViewModel by viewModels<CrimeDetailViewModel>()
+    private val crimeDetailViewModel:CrimeDetailViewModel by viewModels()
     var uuid: UUID by argument()
     private var crime = Crime()
     private lateinit var photoFile: File
