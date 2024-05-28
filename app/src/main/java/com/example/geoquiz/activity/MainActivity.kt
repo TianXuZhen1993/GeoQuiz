@@ -1,8 +1,7 @@
 package com.example.geoquiz.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding
 import com.example.geoquiz.demoNav.HomeFragment
@@ -12,6 +11,11 @@ import com.example.library_base.base.BaseActivity
 import com.example.library_base.utils.inflateBinding
 
 class MainActivity : BaseActivity() {
+
+    companion object {
+        private const val TAG = "MainActivity"
+    }
+
     private val binding: ActivityMainBinding by inflateBinding()
     private val fragments = mutableListOf(HomeFragment(), WorkFragment(), MineFragment())
 
@@ -21,37 +25,64 @@ class MainActivity : BaseActivity() {
         initView()
     }
 
+    @SuppressLint("CommitTransaction")
     private fun initView() {
+//        initFragment()
         binding.navView.itemIconTintList = null
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragments[0])
-            .commit()
         binding.navView.setOnItemSelectedListener {
-            showFragment(it.itemId)
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_main, MineFragment()).commit()
             true
         }
 //        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
 //        binding.navView.setupWithNavController(navHostFragment.navController)
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
+
+    @SuppressLint("CommitTransaction")
+    private fun initFragment() {
+//        supportFragmentManager.beginTransaction().apply {
+//            add(R.id.fragment_container, fragments[0])
+//            add(R.id.fragment_container, fragments[1])
+//            add(R.id.fragment_container, fragments[2])
+//            hide(fragments[1])
+//            hide(fragments[2])
+//        }.commit()
+    }
+
+    private var currentFragmentId = 0
+
+    @SuppressLint("CommitTransaction")
     private fun showFragment(itemId: Int) {
+        supportFragmentManager.beginTransaction().apply {
+            hide(fragments[currentFragmentId])
+        }.commit()
         val fragment = when (itemId) {
             R.id.page_home -> {
+                currentFragmentId = 0
                 fragments[0]
             }
 
             R.id.page_work -> {
+                currentFragmentId = 1
                 fragments[1]
             }
 
             R.id.page_mine -> {
+                currentFragmentId = 2
                 fragments[2]
             }
 
             else -> {
+                currentFragmentId = 0
                 fragments[0]
             }
         }
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment)
-            .commit()
+        supportFragmentManager.beginTransaction().apply {
+            show(fragment)
+        }.commitAllowingStateLoss()
+
     }
 }

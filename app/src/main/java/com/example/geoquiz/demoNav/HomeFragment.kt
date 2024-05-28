@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.geoquiz.base.BaseFragment
 import com.example.geoquiz.databinding.FragmentHomeBinding
+import com.example.library_base.utils.Logger
 import com.example.library_base.utils.viewBinding
 
 /**
@@ -25,5 +26,10 @@ class HomeFragment : BaseFragment() {
     ): View? {
         val binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Logger.d("onDestroy home")
     }
 }
