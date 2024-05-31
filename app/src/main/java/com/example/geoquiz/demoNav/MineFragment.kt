@@ -18,14 +18,19 @@ import com.example.library_base.utils.viewBinding
  * created by 2024/5/24 14:39
  */
 class MineFragment : BaseFragment() {
-//    private val binding: FragmentMineBinding by viewBinding()
+    companion object {
+        private const val TAG = "MineFragment"
+    }
+
+    //    private val binding: FragmentMineBinding by viewBinding()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        Logger.d(TAG, "onCreateView: ");
         val binding = FragmentMineBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Logger.d("onDestroy mine"+this)
+        Logger.d(TAG, "onDestroy: ");
     }
 }

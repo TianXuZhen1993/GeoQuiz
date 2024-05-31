@@ -1,14 +1,23 @@
 package com.example.geoquiz.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding
 import com.example.geoquiz.demoNav.HomeFragment
 import com.example.geoquiz.demoNav.MineFragment
 import com.example.geoquiz.demoNav.WorkFragment
 import com.example.library_base.base.BaseActivity
+import com.example.library_base.utils.Logger
+import com.example.library_base.utils.addHomeActivityFlag
+import com.example.library_base.utils.clearTopAndReCreate
 import com.example.library_base.utils.inflateBinding
+import com.example.library_base.utils.toast
 
 class MainActivity : BaseActivity() {
 
@@ -23,18 +32,23 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         initView()
+        Logger.d(TAG, "onCreate: ")
     }
+
 
     @SuppressLint("CommitTransaction")
     private fun initView() {
-//        initFragment()
         binding.navView.itemIconTintList = null
-        binding.navView.setOnItemSelectedListener {
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_main, MineFragment()).commit()
-            true
-        }
 //        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
 //        binding.navView.setupWithNavController(navHostFragment.navController)
+        binding.navView.setOnItemSelectedListener {
+            val intent = Intent().apply {
+                setAction("woshigou")
+                addCategory(Intent.CATEGORY_HOME)
+            }
+            startActivity(intent)
+            true
+        }
     }
 
     override fun onResume() {
@@ -43,13 +57,13 @@ class MainActivity : BaseActivity() {
 
     @SuppressLint("CommitTransaction")
     private fun initFragment() {
-//        supportFragmentManager.beginTransaction().apply {
-//            add(R.id.fragment_container, fragments[0])
-//            add(R.id.fragment_container, fragments[1])
-//            add(R.id.fragment_container, fragments[2])
-//            hide(fragments[1])
-//            hide(fragments[2])
-//        }.commit()
+        supportFragmentManager.beginTransaction().apply {
+            add(R.id.fragment_container, fragments[0])
+            add(R.id.fragment_container, fragments[1])
+            add(R.id.fragment_container, fragments[2])
+            hide(fragments[1])
+            hide(fragments[2])
+        }.commit()
     }
 
     private var currentFragmentId = 0
@@ -83,6 +97,9 @@ class MainActivity : BaseActivity() {
         supportFragmentManager.beginTransaction().apply {
             show(fragment)
         }.commitAllowingStateLoss()
+    }
 
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }

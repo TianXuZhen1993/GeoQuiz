@@ -25,19 +25,14 @@ class WorkFragment : BaseFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        Logger.d(TAG, "onCreateView: ");
         val binding = FragmentCrimeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Logger.d(TAG, "onCreate")
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-        Logger.d(TAG, "onResume: ");
+    override fun onDestroy() {
+        super.onDestroy()
+        Logger.d(TAG, "onDestroy: ");
     }
 
 }

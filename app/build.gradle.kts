@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.databinding.runtime)
     implementation(libs.bundles.room.group)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     ksp(libs.room.ksp)
     implementation(libs.bundles.lifecycle.group)
     implementation(libs.androidAutoSize)

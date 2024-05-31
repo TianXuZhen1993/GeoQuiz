@@ -17,19 +17,17 @@ import com.example.library_base.utils.viewBinding
  * created by 2024/5/24 14:33
  */
 class HomeFragment : BaseFragment() {
+    companion object {
+        private const val TAG = "HomeFragment"
+    }
 //    private val binding: FragmentHomeBinding by viewBinding()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Logger.d("onDestroy home")
     }
 }

@@ -1,31 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--    <androidx.fragment.app.FragmentContainerView-->
-    <!--        android:id="@+id/fragment_container"-->
-    <!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_above="@id/nav_view"-->
-    <!--        android:layout_alignParentTop="true"-->
-    <!--        app:navGraph="@navigation/nav_bottom_main" />-->
-
-
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_main"
-        android:name="com.example.geoquiz.demoNav.HomeFragment"
+        android:id="@+id/fragment_container"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/nav_view"
         android:layout_alignParentTop="true"
-        android:tag="work"
-        app:navGraph="@navigation/nav_bottom_main"
-        tools:ignore="FragmentTagUsage" />
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_bottom_main" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
