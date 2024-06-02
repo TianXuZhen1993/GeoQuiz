@@ -1,8 +1,9 @@
 package com.example.geoquiz.activity
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding
 import com.example.geoquiz.demoNav.HomeFragment
@@ -21,14 +22,13 @@ class MainActivity : BaseActivity() {
         initView()
     }
 
+    @SuppressLint("CommitTransaction")
     private fun initView() {
         binding.navView.itemIconTintList = null
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragments[0])
-            .commit()
         binding.navView.setOnItemSelectedListener {
-            showFragment(it.itemId)
             true
         }
+
 //        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
 //        binding.navView.setupWithNavController(navHostFragment.navController)
     }
