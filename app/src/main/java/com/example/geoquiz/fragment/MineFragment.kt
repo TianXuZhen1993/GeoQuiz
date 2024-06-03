@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.geoquiz.base.BaseFragment
 import com.example.geoquiz.databinding.FragmentMineBinding
+import com.example.library_base.utils.AppUtils
 import com.example.library_base.utils.Logger
+import com.example.library_base.utils.logD
+import com.example.library_base.utils.toast
 
 /**
  *
@@ -24,6 +27,9 @@ class MineFragment : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Logger.d(TAG, "onCreateView: ");
         val binding = FragmentMineBinding.inflate(inflater, container, false)
+        binding.btLogin.setOnClickListener {
+            AppUtils.isAppInstalled("com.chailease.zlsales").toString().toast()
+        }
         return binding.root
     }
 

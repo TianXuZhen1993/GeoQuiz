@@ -20,11 +20,26 @@ object AppUtils {
      */
     fun isAppInstalled(pkgName: String): Boolean {
         if (pkgName.isEmpty()) return false
-        val pm = CoreUtils.getApp().packageManager
         return try {
+            val pm = CoreUtils.getApp().packageManager
             pm.getApplicationInfo(pkgName, 0).enabled
         } catch (e: PackageManager.NameNotFoundException) {
             false
+        }
+    }
+
+    /**
+     * Return whether the application was first installed.
+     *
+     * @return `true`: yes<br></br>`false`: no
+     */
+    fun isFirstTimeInstalled(): Boolean {
+        try {
+            val pi = CoreUtils.getApp().packageManager.getPackageInfo(CoreUtils.getApp().packageName, 0)
+            return pi.firstInstallTime == pi.lastUpdateTime
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+            return true
         }
     }
 }

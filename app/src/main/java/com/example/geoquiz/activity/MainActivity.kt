@@ -2,6 +2,8 @@ package com.example.geoquiz.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding
 import com.example.geoquiz.fragment.HomeFragment
@@ -32,12 +34,8 @@ class MainActivity : BaseActivity() {
     @SuppressLint("CommitTransaction")
     private fun initView() {
         binding.navView.itemIconTintList = null
-        binding.navView.setOnItemSelectedListener {
-
-            true
-        }
-//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
-//        binding.navView.setupWithNavController(navHostFragment.navController)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
+        binding.navView.setupWithNavController(navHostFragment.navController)
     }
 
     override fun onResume() {
