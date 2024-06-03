@@ -4,9 +4,9 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding
-import com.example.geoquiz.demoNav.HomeFragment
-import com.example.geoquiz.demoNav.MineFragment
-import com.example.geoquiz.demoNav.WorkFragment
+import com.example.geoquiz.fragment.HomeFragment
+import com.example.geoquiz.fragment.MineFragment
+import com.example.geoquiz.fragment.WorkFragment
 import com.example.library_base.base.BaseActivity
 import com.example.library_base.utils.Logger
 import com.example.library_base.utils.inflateBinding

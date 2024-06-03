@@ -1,4 +1,4 @@
-package com.example.geoquiz.demoNav
+package com.example.geoquiz.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

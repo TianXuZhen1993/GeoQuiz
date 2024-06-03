@@ -1,10 +1,8 @@
-package com.example.geoquiz.demoNav
+package com.example.geoquiz.navigation
 
 import android.content.Context
-import android.os.Bundle
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavBackStackEntry
-import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 import androidx.navigation.fragment.FragmentNavigator
