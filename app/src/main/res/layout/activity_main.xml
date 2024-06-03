@@ -6,24 +6,24 @@
     android:orientation="vertical">
 
 
-    <!--    <androidx.fragment.app.FragmentContainerView-->
-    <!--        android:id="@+id/fragment_container"-->
-    <!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_above="@id/nav_view"-->
-    <!--        android:layout_alignParentTop="true"-->
-    <!--        app:navGraph="@navigation/nav_bottom_main" />-->
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
-        android:name="com.example.geoquiz.fragment.HomeFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/nav_view"
         android:layout_alignParentTop="true"
-        app:defaultNavHost="true"
         app:navGraph="@navigation/nav_bottom_main" />
+
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/fragment_container"-->
+<!--        android:name="com.example.geoquiz.fragment.HomeFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_above="@id/nav_view"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        app:defaultNavHost="true"-->
+<!--        app:navGraph="@navigation/nav_bottom_main" />-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
