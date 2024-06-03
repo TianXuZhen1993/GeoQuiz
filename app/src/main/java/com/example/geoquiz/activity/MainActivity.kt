@@ -1,12 +1,7 @@
 package com.example.geoquiz.activity
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding
 import com.example.geoquiz.demoNav.HomeFragment
@@ -14,16 +9,14 @@ import com.example.geoquiz.demoNav.MineFragment
 import com.example.geoquiz.demoNav.WorkFragment
 import com.example.library_base.base.BaseActivity
 import com.example.library_base.utils.Logger
-import com.example.library_base.utils.addHomeActivityFlag
-import com.example.library_base.utils.clearTopAndReCreate
 import com.example.library_base.utils.inflateBinding
-import com.example.library_base.utils.toast
 
 class MainActivity : BaseActivity() {
 
     companion object {
         private const val TAG = "MainActivity"
     }
+
 
     private val binding: ActivityMainBinding by inflateBinding()
     private val fragments = mutableListOf(HomeFragment(), WorkFragment(), MineFragment())
@@ -39,16 +32,12 @@ class MainActivity : BaseActivity() {
     @SuppressLint("CommitTransaction")
     private fun initView() {
         binding.navView.itemIconTintList = null
-//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
-//        binding.navView.setupWithNavController(navHostFragment.navController)
         binding.navView.setOnItemSelectedListener {
-            val intent = Intent().apply {
-                setAction("woshigou")
-                addCategory(Intent.CATEGORY_HOME)
-            }
-            startActivity(intent)
+
             true
         }
+//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
+//        binding.navView.setupWithNavController(navHostFragment.navController)
     }
 
     override fun onResume() {

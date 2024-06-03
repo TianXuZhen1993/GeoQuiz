@@ -11,7 +11,7 @@ import androidx.annotation.StringRes
  * created by 2024/5/17 11:37
  */
 object ToastUtils {
-    private val content = CoreUtils.application
+    private val content = CoreUtils.getApp()
 
     fun showShort(text: CharSequence) {
         Toast.makeText(content, text, Toast.LENGTH_SHORT).show()

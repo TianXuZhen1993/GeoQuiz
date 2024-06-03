@@ -13,7 +13,11 @@ import android.app.Application
  */
 object CoreUtils {
     //        val app = getApplicationByReflect() ?: throw NullPointerException("reflect application failed")
-    var application: Application = UtilsContentProvider.application
+    private val application: Application = UtilsContentProvider.application
+
+    fun getApp(): Application {
+        return application
+    }
 
     /**
      * 通过反射获取Application实例

@@ -24,6 +24,17 @@
         tools:targetApi="31">
 
 
+        <activity
+            android:name=".activity.CrimeActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ANSWER" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="tian" />
+            </intent-filter>
+        </activity>
+
+
         <meta-data
             android:name="design_width_in_dp"
             android:value="375" />
@@ -42,16 +53,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".activity.CrimeActivity"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="woshigou" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.HOME" />
-            </intent-filter>
-        </activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -9,7 +9,7 @@ import androidx.core.content.ContextCompat
 
 object ResourceUtils {
 
-    private val context = CoreUtils.application
+    private val context = CoreUtils.getApp()
 
     private fun getContext(): Context {
         return context

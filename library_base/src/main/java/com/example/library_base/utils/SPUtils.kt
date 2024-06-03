@@ -15,7 +15,7 @@ object SPUtils {
     //项目APP的基础设置
     private const val APP_CONFIG = "APP_CONFIG"
 
-    private var sp: SharedPreferences = CoreUtils.application.getSharedPreferences(APP_CONFIG, Context.MODE_PRIVATE)
+    private var sp: SharedPreferences = CoreUtils.getApp().getSharedPreferences(APP_CONFIG, Context.MODE_PRIVATE)
 
 
     private var isChangeName = true
@@ -29,7 +29,7 @@ object SPUtils {
      */
     fun getInstance(name: String = ""): SharedPreferences {
         val spName = name.ifEmpty { APP_CONFIG }
-        return CoreUtils.application.getSharedPreferences(spName, Context.MODE_PRIVATE)
+        return CoreUtils.getApp().getSharedPreferences(spName, Context.MODE_PRIVATE)
     }
 
     fun putString(key: String, value: String) {
