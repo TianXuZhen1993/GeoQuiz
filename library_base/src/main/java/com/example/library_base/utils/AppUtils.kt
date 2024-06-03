@@ -16,7 +16,7 @@ object AppUtils {
      * Return whether the app is installed.
      *
      * @param pkgName The name of the package.
-     * @return true：yes  false ：no
+     * @return true：yes   false ：no
      */
     fun isAppInstalled(pkgName: String): Boolean {
         if (pkgName.isEmpty()) return false
