@@ -6,24 +6,20 @@
     android:gravity="center"
     android:orientation="vertical">
 
-<!--    <TextView-->
-<!--        android:id="@+id/tv_check"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="检查是否包含APP"-->
-<!--        android:textSize="22sp" />-->
 
     <Button
-        android:id="@+id/bt_login"
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:text="登录" />
+
+    <Button
+        android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="36dp"
-        android:gravity="center"
-        android:foreground="?attr/selectableItemBackground"
-        android:background="#65AED5"
-        android:text="检查是否包含APP"
+        android:layout_margin="24dp"
         android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:background="@drawable/bg_register"
+        android:text="注册" />
 </LinearLayout>

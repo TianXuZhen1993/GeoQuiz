@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#4857BD"><!--按压的时候显示的颜色-->
+        <item>
+            <shape android:shape="rectangle">
+                <corners android:radius="24dp" />
+                <solid android:color="#5B6EEC" /><!--按钮背景色-->
+            </shape>
+        </item>
+<!--    <item>-->
+<!--        <selector>-->
+<!--            <item android:state_pressed="false">-->
+<!--                <shape android:shape="rectangle">-->
+<!--                    <solid android:color="#E76C6C" />-->
+<!--                </shape>-->
+<!--            </item>-->
+<!--            <item android:state_pressed="true">-->
+<!--                <shape android:shape="rectangle">-->
+<!--                    <solid android:color="#4EC2E5" />-->
+<!--                </shape>-->
+<!--            </item>-->
+<!--        </selector>-->
+<!--    </item>-->
+</ripple>

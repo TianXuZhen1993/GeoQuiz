@@ -16,13 +16,13 @@ import com.example.library_base.dialog.base.BaseCenterDialogFragment
  * @version 1.0
  * created by 2024/5/13 15:37
  */
-class OneBtnDialogFragment : BaseCenterDialogFragment() {
+class OneBtnInfoDialogFragment : BaseCenterDialogFragment() {
     private var _builderConfig = Builder()
 
     //不同项目的oneBtn应该是不一样的，根据设计稿修改一些view的大小跟颜色即可
     private lateinit var binding: DialogOneBtnBinding
 
-    private lateinit var onClick: OnClickListener
+    private lateinit var onClickListener: OnClickListener
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,18 +39,17 @@ class OneBtnDialogFragment : BaseCenterDialogFragment() {
             tvContent.text = _builderConfig.content
             btn.text = _builderConfig.btnText
             //如果build 跟 dialog同时实现，则优先选择dialog
-            if (::onClick.isInitialized) {
-                btn.setOnClickListener(onClick)
+            if (::onClickListener.isInitialized) {
+                btn.setOnClickListener(onClickListener)
             } else {
                 btn.setOnClickListener {
-                    _builderConfig.onBtnClick
+                    _builderConfig.onBtnClick()
                     dismiss()
                 }
             }
         }
         return binding.root
     }
-
 
     fun setContent(content: String) {
         if (::binding.isInitialized) {
@@ -61,17 +60,14 @@ class OneBtnDialogFragment : BaseCenterDialogFragment() {
     }
 
 
-    fun setBtnOnClickListener(onClick: OnClickListener) {
+    fun setBtnOnClickListener(onClickListener: OnClickListener) {
         if (::binding.isInitialized) {
-            binding.btn.setOnClickListener(onClick)
+            binding.btn.setOnClickListener(onClickListener)
         } else {
-            this.onClick = onClick
+            this.onClickListener = onClickListener
         }
     }
 
-    fun setBuilder(builder: Builder) {
-        _builderConfig = builder
-    }
 
     inner class Builder() {
         var title = "提示"
@@ -103,9 +99,9 @@ class OneBtnDialogFragment : BaseCenterDialogFragment() {
             return this
         }
 
-        fun create(): OneBtnDialogFragment {
-            return OneBtnDialogFragment().apply {
-                setBuilder(this@Builder)
+        fun create(): OneBtnInfoDialogFragment {
+            return this@OneBtnInfoDialogFragment.apply {
+                _builderConfig = this@Builder
             }
         }
     }
