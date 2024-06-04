@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="theme_color">#4857BD</color>
+    <color name="statusBarColor">#5971F1</color>
 </resources>

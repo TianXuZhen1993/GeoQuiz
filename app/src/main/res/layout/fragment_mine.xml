@@ -2,9 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
-    android:gravity="center"
     android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_register"
+        android:text="注册" />
+
 
     <Button
         android:id="@+id/btn_login"
@@ -13,12 +20,5 @@
         android:layout_margin="24dp"
         android:text="登录" />
 
-    <Button
-        android:id="@+id/btn_register"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_margin="24dp"
-        android:textColor="@color/white"
-        android:background="@drawable/bg_register"
-        android:text="注册" />
+
 </LinearLayout>
