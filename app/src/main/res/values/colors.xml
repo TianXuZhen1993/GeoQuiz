@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--    主题颜色-->
-    <color name="theme_color">#4D5DFA</color>
 
-    <!--    状态栏颜色-->
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="statusBarColor">#5971F1</color>
-
-
-    <color name="colorPrimary">#008577</color>
-    <color name="colorAccent">#D81B60</color>
 
 
 

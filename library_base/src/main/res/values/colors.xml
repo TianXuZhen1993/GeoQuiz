@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="statusBarColor">#5971F1</color>
+    <!--    主题颜色-->
+    <color name="theme_color">#4D5DFA</color>
 
-    <color name="button_pressed">#5971F1</color>
+    <!--    状态栏颜色-->
+    <color name="colorPrimaryDark">@color/theme_color</color>
+    <color name="statusBarColor">@color/theme_color</color>
+
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorAccent">#D81B60</color>
+
+
+    <color name="button_pressed">@color/theme_color</color>
+    <color name="button_sure">@color/theme_color</color>
+    <color name="button_cancel">#C6C6C6</color>
 </resources>

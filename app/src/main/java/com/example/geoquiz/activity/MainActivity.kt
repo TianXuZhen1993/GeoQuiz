@@ -19,7 +19,6 @@ class MainActivity : BaseActivity() {
         private const val TAG = "MainActivity"
     }
 
-
     private val binding: ActivityMainBinding by inflateBinding()
     private val fragments = mutableListOf(HomeFragment(), WorkFragment(), MineFragment())
 
@@ -38,9 +37,6 @@ class MainActivity : BaseActivity() {
         binding.navView.setupWithNavController(navHostFragment.navController)
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
 
     @SuppressLint("CommitTransaction")
     private fun initFragment() {
