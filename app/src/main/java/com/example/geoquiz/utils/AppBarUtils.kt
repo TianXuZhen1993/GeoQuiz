@@ -3,6 +3,7 @@ package com.example.geoquiz.utils
 import android.annotation.SuppressLint
 import android.content.res.Resources
 import android.graphics.Color
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
@@ -30,7 +31,10 @@ object AppBarUtils {
     fun getStatusBarHeightByResource(): Int {
         Resources.getSystem().apply {
             val resourcesId = getIdentifier("status_bar_height", "dimen", "android")
-            return getDimensionPixelSize(resourcesId)
+            return if (resourcesId > 0) getDimensionPixelSize(resourcesId) else {
+                Log.e("AppBarUtils", "警告：getStatusBarHeightByResource: not find dimen status_bar_height", )
+                0
+            }
         }
     }
 

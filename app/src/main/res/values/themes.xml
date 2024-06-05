@@ -61,8 +61,7 @@
 
     <!--    项目主题-->
     <style name="Theme.GeoQuiz" parent="Theme.AppCompat.Light.NoActionBar">
-        <!--        //全屏展示-->
-<!--        <item name="android:windowFullscreen">true</item>-->
+
     </style>
 
 

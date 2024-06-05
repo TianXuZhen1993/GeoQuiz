@@ -2,16 +2,9 @@ package com.example.geoquiz.activity
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
-import android.view.WindowManager.LayoutParams
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.OnApplyWindowInsetsListener
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityStatusBarBinding
 import com.example.geoquiz.utils.AppBarUtils
@@ -71,9 +64,9 @@ class StatusBarActivity : AppCompatActivity(), CancelAdapt {
 //            return@setOnApplyWindowInsetsListener insets
 //        }
 
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        window.statusBarColor = Color.TRANSPARENT
-
+//        WindowCompat.setDecorFitsSystemWindows(window, false)
+//        window.statusBarColor = Color.TRANSPARENT
+//        _binding.toolBar.updatePadding(0, AppBarUtils.appStatusBarHeight, 0, 0)
 
         _binding.toolBar.apply {
             setLogo(R.mipmap.ic_launcher)
