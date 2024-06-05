@@ -15,7 +15,7 @@
         android:background="@drawable/selector_dialog_delete_pic"
         android:minWidth="160dp"
         android:padding="10dp"
-        android:textColor="@color/home_background_start"
+        android:textColor="@android:color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         android:text="取消关注" />

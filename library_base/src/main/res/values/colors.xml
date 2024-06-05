@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="statusBarColor">#5971F1</color>
+
+    <color name="button_pressed">#5971F1</color>
 </resources>
