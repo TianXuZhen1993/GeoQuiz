@@ -22,18 +22,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeoQuiz"
         tools:targetApi="31">
-
-
         <activity
-            android:name=".activity.CrimeActivity"
-            android:exported="false">
+            android:name=".activity.StatusBarActivity"
+            android:exported="true">
+
             <intent-filter>
-                <action android:name="android.intent.action.ANSWER" />
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="tian" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.CrimeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.ANSWER" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="tian" />
+            </intent-filter>
+
+        </activity>
 
         <meta-data
             android:name="design_width_in_dp"
@@ -46,13 +56,14 @@
             android:name=".activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.GeoQuiz">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-
 
         <provider
             android:name="androidx.core.content.FileProvider"
