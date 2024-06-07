@@ -17,6 +17,7 @@ import com.example.geoquiz.utils.AppBarUtils
 import com.example.library_base.utils.Logger
 import com.example.library_base.utils.inflateBinding
 import me.jessyan.autosize.internal.CancelAdapt
+import java.util.Calendar
 
 
 class StatusBarActivity : AppCompatActivity(), CancelAdapt {
@@ -25,6 +26,8 @@ class StatusBarActivity : AppCompatActivity(), CancelAdapt {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(_binding.root)
+        java.util.Calendar.getInstance()
+        android.icu.util.Calendar.getInstance()
         initView()
     }
 
@@ -33,6 +36,7 @@ class StatusBarActivity : AppCompatActivity(), CancelAdapt {
             setLogo(R.mipmap.ic_launcher)
             title = "状态栏设置"
         }
+        setFullScreen(_binding.toolBar)
     }
 
     //参考资料
