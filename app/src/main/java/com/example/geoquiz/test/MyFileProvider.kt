@@ -1,4 +1,4 @@
-package com.example.geoquiz.contentProvider
+package com.example.geoquiz.test
 
 import androidx.core.content.FileProvider
 

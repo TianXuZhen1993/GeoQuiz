@@ -23,7 +23,7 @@
         android:theme="@style/Theme.GeoQuiz"
         tools:targetApi="31">
         <activity
-            android:name=".activity.StatusBarActivity"
+            android:name=".statusBar.StatusBarActivity"
             android:exported="true">
 
             <intent-filter>
@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.CrimeActivity"
+            android:name=".crime.activity.CrimeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.ANSWER" />
@@ -53,7 +53,7 @@
             android:value="812" />
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".test.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.GeoQuiz">
 

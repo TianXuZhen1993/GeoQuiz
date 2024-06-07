@@ -2,17 +2,15 @@
 <resources>
     <!--    主题颜色-->
     <color name="theme_color">#4D5DFA</color>
-
-    <!--    状态栏颜色-->
+    <!--    状态栏颜色,默认跟主题颜色保持一致-->
     <color name="colorPrimaryDark">@color/theme_color</color>
     <color name="statusBarColor">@color/theme_color</color>
-
-
-    <color name="colorPrimary">#008577</color>
-    <color name="colorAccent">#D81B60</color>
-
-
+    <!--    按钮默认颜色-->
     <color name="button_pressed">@color/theme_color</color>
     <color name="button_sure">@color/theme_color</color>
     <color name="button_cancel">#C6C6C6</color>
+
+    <!--                      分割线                         -->
+    <color name="colorPrimary">#008577</color>
+    <color name="colorAccent">#D81B60</color>
 </resources>
