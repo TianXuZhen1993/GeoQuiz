@@ -1,14 +1,15 @@
 package com.example.library_base.expand_fun
 
-import com.orhanobut.logger.Logger
+import com.example.library_base.utils.Logger
+
+
+fun Any.log() {
+    Logger.d(this)
+}
 
 /**
- *
- *
- * @author TXZ
- * @version 1.0
- * created by 2024/5/17 10:45
+ * 快捷调试
  */
-fun Any.logD() {
-    Logger.d(this)
+fun String.debug() {
+    Logger.onlyLog(this)
 }

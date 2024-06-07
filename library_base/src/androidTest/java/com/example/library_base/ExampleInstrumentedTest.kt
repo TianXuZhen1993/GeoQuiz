@@ -2,6 +2,8 @@ package com.example.library_base
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.library_base.expand_fun.log
+import com.example.library_base.utils.DateUtils
 
 import org.junit.Test
 import org.junit.runner.RunWith
