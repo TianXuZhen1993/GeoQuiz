@@ -5,17 +5,13 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup.MarginLayoutParams
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.OnApplyWindowInsetsListener
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
-import androidx.core.view.updatePadding
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityStatusBarBinding
-import com.example.geoquiz.utils.AppBarUtils
-import com.example.library_base.utils.Logger
-import com.example.library_base.utils.inflateBinding
+import com.example.library_base.expand_fun.inflateBinding
 import me.jessyan.autosize.internal.CancelAdapt
 
 
@@ -46,10 +42,7 @@ class StatusBarActivity : AppCompatActivity(), CancelAdapt {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         window.statusBarColor = Color.TRANSPARENT
         //要求Android11 以上
-//        toolBar.setOnApplyWindowInsetsListener { v, insets ->
-//            insets.systemWindowInsetTop
-//            insets
-//        }
+
         ViewCompat.setOnApplyWindowInsetsListener(toolBar) { view, windowInserts ->
             val insets = windowInserts.getInsets(WindowInsetsCompat.Type.statusBars())
             view.updateLayoutParams<MarginLayoutParams> {

@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.geoquiz.base.BaseFragment
 import com.example.geoquiz.databinding.FragmentHomeBinding
-import com.example.library_base.utils.Logger
-import com.example.library_base.utils.viewBinding
 
 /**
  *

@@ -1,4 +1,4 @@
-package com.example.geoquiz.utils
+package com.example.library_base.utils
 
 import android.annotation.SuppressLint
 import android.content.res.Resources
@@ -49,29 +49,5 @@ object AppBarUtils {
             return getInsets(WindowInsetsCompat.Type.statusBars()).top
         }
         return -1
-    }
-
-    /**
-     * 设置全面屏
-     *
-     * @param window
-     * @param conflictView
-     */
-    fun setFullScreen(window: Window, conflictView: View? = null) {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        window.statusBarColor = Color.TRANSPARENT
-        window.navigationBarColor = Color.TRANSPARENT
-        if (conflictView == null) return
-        ViewCompat.setOnApplyWindowInsetsListener(conflictView) { view, windowInsets ->
-            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            // 此处更改的 margin，也可设置 padding，视情况而定
-            view.updateLayoutParams<ViewGroup.MarginLayoutParams> {
-                topMargin = insets.top
-                leftMargin = insets.left
-                bottomMargin = insets.bottom
-                rightMargin = insets.right
-            }
-            WindowInsetsCompat.CONSUMED
-        }
     }
 }

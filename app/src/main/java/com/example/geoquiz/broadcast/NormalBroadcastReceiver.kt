@@ -3,7 +3,7 @@ package com.example.geoquiz.broadcast
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.example.library_base.utils.toast
+import com.example.library_base.expand_fun.toast
 
 /**
  * @author: TXZ

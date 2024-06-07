@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.geoquiz.databinding.FragmentCrimeBinding
 import com.example.library_base.utils.Logger
-import com.example.library_base.utils.inflateBinding
+import com.example.library_base.expand_fun.inflateBinding
 
 class CrimeActivity : AppCompatActivity() {
     companion object {
