@@ -1,11 +1,12 @@
-package com.example.geoquiz.activity
+package com.example.geoquiz.crime.activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.geoquiz.test.MainActivity
 import com.example.geoquiz.databinding.FragmentCrimeBinding
 import com.example.library_base.utils.Logger
-import com.example.library_base.utils.inflateBinding
+import com.example.library_base.expand_fun.inflateBinding
 
 class CrimeActivity : AppCompatActivity() {
     companion object {

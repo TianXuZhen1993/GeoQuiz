@@ -15,8 +15,8 @@ import com.orhanobut.logger.PrettyFormatStrategy
  */
 object Logger {
     private var isLogger = false
-    private const val _TOP = "------------------------------------------------------------------"
-    private const val _BOTTOM = "------------------------------------------------------------------"
+    private const val TOP = "------------------------------------------------------------------"
+    private const val BOTTOM = "------------------------------------------------------------------"
 
     /**
      * 初始化Logger
@@ -36,19 +36,27 @@ object Logger {
         })
     }
 
-    fun d(any: Any?) {
+    fun i(str: String) {
+        Logger.i(str)
+    }
+
+    fun d(any: Any) {
         Logger.d(any)
     }
 
-    fun d(tag: String, any: Any?) {
+    fun d(tag: String, any: Any) {
         Logger.t(tag).d(any)
+    }
+
+    fun e(message: String) {
+        Logger.e(message)
     }
 
     fun onlyLog(message: String, tag: String = "") {
         if (isLogger) {
-            Log.d(tag, _TOP)
+            Log.d(tag, TOP)
             Log.d(tag, message)
-            Log.d(tag, _BOTTOM)
+            Log.d(tag, BOTTOM)
         }
     }
 }

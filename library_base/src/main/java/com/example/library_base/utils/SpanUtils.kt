@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextPaint
-import android.text.method.LinkMovementMethod
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.BackgroundColorSpan
 import android.text.style.CharacterStyle
@@ -12,7 +11,6 @@ import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.TextView
-import org.w3c.dom.Text
 import java.util.regex.Pattern
 
 /**

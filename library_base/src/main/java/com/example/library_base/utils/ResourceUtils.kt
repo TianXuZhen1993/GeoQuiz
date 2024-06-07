@@ -6,7 +6,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 
-
+@Deprecated("调试阶段")
 object ResourceUtils {
 
     private val context = CoreUtils.getApp()

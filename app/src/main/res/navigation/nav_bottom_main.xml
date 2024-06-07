@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/page_home"
-        android:name="com.example.geoquiz.fragment.HomeFragment"
+        android:name="com.example.geoquiz.test.fragment.HomeFragment"
         tools:layout="@layout/fragment_home">
 
     </fragment>
 
     <fragment
         android:id="@+id/page_work"
-        android:name="com.example.geoquiz.fragment.WorkFragment"
+        android:name="com.example.geoquiz.test.fragment.WorkFragment"
         tools:layout="@layout/fragment_crime" />
 
     <fragment
         android:id="@+id/page_mine"
-        android:name="com.example.geoquiz.fragment.MineFragment"
+        android:name="com.example.geoquiz.test.fragment.MineFragment"
         tools:layout="@layout/fragment_mine" />
 </navigation>

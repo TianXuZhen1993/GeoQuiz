@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
  * @version 1.0
  * created by 2024/5/22 15:56
  */
+@Deprecated("调试阶段")
 class PermissionUtils {
 //    private val pickContact = registerForActivityResult(ActivityResultContracts.PickContact()) { uri ->
 //        uri?.apply {

@@ -1,8 +1,11 @@
 package com.example.library_base
 
-import org.junit.Test
-
+import com.example.library_base.utils.DateUtils
 import org.junit.Assert.*
+import org.junit.Test
+import java.sql.Date
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -12,6 +15,10 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+        val nowTime = System.currentTimeMillis()
+        val nowDate = Date(nowTime)
+        val formatWeek = SimpleDateFormat("EEEE", Locale.CHINA)
+        val nowWeek = formatWeek.format(nowDate)
+        println(nowWeek)
     }
 }

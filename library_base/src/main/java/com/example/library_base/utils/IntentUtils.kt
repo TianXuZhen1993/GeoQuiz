@@ -21,6 +21,7 @@ import androidx.annotation.RequiresPermission
  * @version: 1.0
  * @date: created by 2024/3/31 21:56
  */
+@Deprecated("调试阶段")
 object IntentUtils {
     /**
      *

@@ -1,4 +1,4 @@
-package com.example.geoquiz.navigation
+package com.example.geoquiz.test.navigation
 
 import android.content.Context
 import androidx.fragment.app.FragmentManager

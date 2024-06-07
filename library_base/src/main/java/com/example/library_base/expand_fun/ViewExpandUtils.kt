@@ -1,10 +1,11 @@
-package com.example.library_base.utils
+package com.example.library_base.expand_fun
 
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.LinkMovementMethod
 import android.text.method.PasswordTransformationMethod
 import android.widget.EditText
 import android.widget.TextView
+import com.example.library_base.utils.SpanUtils
 
 
 /**

@@ -31,6 +31,19 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="185542183">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Tests" value="360" />
+                  <entry key="meizu MEIZU 18 Pro" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="1632615315">
           <value>
             <AndroidTestResultsTableState>
