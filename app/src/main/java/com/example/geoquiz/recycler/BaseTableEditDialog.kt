@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
@@ -32,21 +33,25 @@ class BaseTableEditDialog : BaseBottomDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ViewCompat.setOnApplyWindowInsetsListener(_binding.clEdit) { root, windowInsets ->
-            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.ime())
-            // 此处更改的 margin，也可设置 padding，视情况而定
-            root.updateLayoutParams<ViewGroup.MarginLayoutParams> {
-
-            }
-            Logger.onlyLog(insets.bottom.toString())
-            WindowInsetsCompat.CONSUMED
-        }
+//        ViewCompat.setOnApplyWindowInsetsListener(_binding.clEdit) { root, windowInsets ->
+//            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.ime())
+//            // 此处更改的 margin，也可设置 padding，视情况而定
+//            root.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+//
+//            }
+//            Logger.onlyLog(insets.bottom.toString())
+//            WindowInsetsCompat.CONSUMED
+//        }
+        _binding.clEdit.requestFocus()
         dialog?.window?.apply {
             setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+            val insetsController = WindowCompat.getInsetsController(this, this.decorView)
+            insetsController.show(WindowInsetsCompat.Type.ime())
         }
         _binding.ivClose.setOnClickListener {
             dismiss()
         }
+
     }
 
 }
