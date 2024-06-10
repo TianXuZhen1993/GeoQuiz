@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:background="@color/white"
+    android:elevation="5dp"
+    tools:background="#EDEDED">
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/tv_default_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="上海恩友商标织造有限公司" />
+
+    <TextView
+        android:id="@+id/tv_custom_code"
+        style="@style/tv_default_title.item_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="组织机构代码：9131000607479310Y" />
+
+    <TextView
+        android:id="@+id/tv_custom_num"
+        style="@style/tv_default_title.item_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/tv_custom_code"
+        app:layout_constraintTop_toBottomOf="@id/tv_custom_code"
+        tools:text="本次基本表得分：98分" />
+
+    <Button
+        android:id="@+id/btn_edit"
+        style="@style/btn_default.item_base_table_edit"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:layout_margin="16dp"
+        android:text="编辑"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="HardcodedText" />
+</androidx.constraintlayout.widget.ConstraintLayout>

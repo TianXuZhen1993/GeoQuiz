@@ -6,7 +6,6 @@ import androidx.core.content.ContextCompat
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityStatusBarBinding
 import com.example.library_base.expand_fun.inflateBinding
-import com.example.library_base.expand_fun.setFunScreen
 import me.jessyan.autosize.internal.CancelAdapt
 
 

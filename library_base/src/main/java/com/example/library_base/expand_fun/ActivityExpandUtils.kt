@@ -11,11 +11,14 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
 
 
+//参考资料
+//https://juejin.cn/post/7038422081528135687
+//https://juejin.cn/post/7376851823640870921
 /**
  * 设置全面屏，保留状态栏
  *
  * @param window
- * @param conflictView
+ * @param conflictView 跟bar冲突的view
  */
 fun AppCompatActivity.setFunScreen(window: Window, conflictView: View? = null) {
     //取消状态栏的间隔
