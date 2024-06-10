@@ -11,6 +11,7 @@ import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import com.example.geoquiz.databinding.DialogBaseTableEditBinding
 import com.example.library_base.dialog.base.BaseBottomDialogFragment
+import com.example.library_base.utils.Logger
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 /**
@@ -31,20 +32,21 @@ class BaseTableEditDialog : BaseBottomDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dialog?.window?.decorView?.setPadding(0, 0, 0, 0)
-        ViewCompat.setOnApplyWindowInsetsListener(_binding.root) { root, windowInsets ->
+        ViewCompat.setOnApplyWindowInsetsListener(_binding.clEdit) { root, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.ime())
             // 此处更改的 margin，也可设置 padding，视情况而定
             root.updateLayoutParams<ViewGroup.MarginLayoutParams> {
-                topMargin = 0
-                leftMargin = 0
-                bottomMargin = insets.bottom
-                rightMargin = 0
+
             }
+            Logger.onlyLog(insets.bottom.toString())
             WindowInsetsCompat.CONSUMED
+        }
+        dialog?.window?.apply {
+            setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         }
         _binding.ivClose.setOnClickListener {
             dismiss()
         }
     }
+
 }

@@ -29,30 +29,49 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
+    <!--    <ScrollView-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="100dp"-->
+    <!--        android:layout_marginStart="10dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:layout_marginEnd="10dp"-->
+    <!--        android:layout_marginBottom="35dp"-->
+    <!--        android:orientation="vertical"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/title">-->
+
+    <!--        <androidx.appcompat.widget.AppCompatEditText-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:background="@drawable/bg_edit_base_table"-->
+    <!--            android:gravity="start|top"-->
+    <!--            android:maxHeight="200dp"-->
+    <!--            android:minHeight="100dp"-->
+    <!--            android:padding="16dp"-->
+    <!--            android:textColor="#212121"-->
+    <!--            android:textSize="13sp" />-->
+    <!--    </ScrollView>-->
+
+    <androidx.appcompat.widget.AppCompatEditText
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="35dp"
+        android:background="@drawable/bg_edit_base_table"
+        android:gravity="start|top"
+        android:maxHeight="200dp"
+        android:minHeight="100dp"
         android:orientation="vertical"
+        android:padding="16dp"
+        android:textColor="#212121"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title">
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_edit_base_table"
-            android:gravity="start|top"
-            android:maxHeight="200dp"
-            android:minHeight="100dp"
-            android:padding="16dp"
-            android:textColor="#212121"
-            android:textSize="13sp" />
-    </ScrollView>
-
+        app:layout_constraintTop_toBottomOf="@id/title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

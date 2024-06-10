@@ -1,5 +1,7 @@
 package com.example.library_base.dialog.base
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -14,6 +16,11 @@ import com.blankj.utilcode.util.Utils
  * created by 2024/5/8 11:39
  */
 abstract class BaseBottomDialogFragment : BaseDialogFragment() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setStyle()
@@ -31,6 +38,8 @@ abstract class BaseBottomDialogFragment : BaseDialogFragment() {
             layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
             layoutParams.gravity = Gravity.BOTTOM
             attributes = layoutParams
+            decorView.setPadding(0, 0, 0, 0)
+            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         }
     }
 }
