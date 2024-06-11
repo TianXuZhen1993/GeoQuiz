@@ -8,10 +8,11 @@ import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.geoquiz.databinding.ActivityRecyclerViewBinding
 import com.example.library_base.R
+import com.example.library_base.base.BaseActivity
 import com.example.library_base.expand_fun.inflateBinding
 import com.example.library_base.expand_fun.toast
 
-class RecyclerViewActivity : AppCompatActivity() {
+class RecyclerViewActivity : BaseActivity() {
     private val _binding: ActivityRecyclerViewBinding by inflateBinding()
     private val viewModel: BaseTableViewModel by viewModels()
     private val editDialog: BaseTableEditDialog = BaseTableEditDialog()
@@ -56,7 +57,6 @@ class RecyclerViewActivity : AppCompatActivity() {
             curPage++
             viewModel.getCustomTableList(curPage)
         }
-        val insetsController = WindowCompat.getInsetsController(window, window.decorView)
     }
 
 
