@@ -54,39 +54,8 @@ class TwoBtnDialogFragment() : BaseCenterDialogFragment() {
 
         //不能直接在Build里面设置dismiss，因为fragmentManager 还没初始化
         var onSureClick: () -> Unit = {
+
         }
-
-
-        fun setTitle(title: String): Builder {
-            this.tvTitle = title
-            return this
-        }
-
-        fun setContent(title: String): Builder {
-            this.tvContent = title
-            return this
-        }
-
-        fun setCancelText(text: String): Builder {
-            this.tvCancel = text
-            return this
-        }
-
-        fun setSureText(text: String): Builder {
-            tvSure = text
-            return this
-        }
-
-        fun setSureClickListener(onSure: () -> Unit): Builder {
-            onSureClick = onSure
-            return this
-        }
-
-        fun setCancelClickListener(onCancel: () -> Unit): Builder {
-            onCancelClick = onCancel
-            return this
-        }
-
 
         fun create(): TwoBtnDialogFragment {
             return this@TwoBtnDialogFragment.apply {

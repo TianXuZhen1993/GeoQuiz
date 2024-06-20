@@ -1,6 +1,10 @@
 package com.example.geoquiz.animation
 
+import android.graphics.drawable.AnimationDrawable
+import android.os.Bundle
+import com.example.geoquiz.databinding.ActivityAnimationBinding
 import com.example.library_base.base.BaseActivity
+import com.example.library_base.expand_fun.inflateBinding
 
 /**
  * @author: TXZ
@@ -8,5 +12,15 @@ import com.example.library_base.base.BaseActivity
  * @date: created by 2024/6/11 23:01
  */
 class AnimationActivity : BaseActivity() {
-    
+    private val binding: ActivityAnimationBinding by inflateBinding()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        initView()
+    }
+
+    private fun initView() {
+        val animationDrawable = AnimationDrawable()
+    }
 }

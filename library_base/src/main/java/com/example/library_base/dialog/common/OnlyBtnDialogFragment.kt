@@ -19,9 +19,12 @@ import com.example.library_base.dialog.base.BaseCenterDialogFragment
 class OnlyBtnDialogFragment : BaseCenterDialogFragment() {
     private var _builderConfig = Builder()
     private lateinit var binding: DialogOnlyBtnBinding
-    lateinit var onClick: View.OnClickListener
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = DialogOnlyBtnBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -30,23 +33,15 @@ class OnlyBtnDialogFragment : BaseCenterDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setStyle()
         binding.btn.text = _builderConfig.btnText
-        if (::onClick.isInitialized) {
-            binding.btn.setOnClickListener(onClick)
-        } else {
-            binding.btn.setOnClickListener {
-                _builderConfig.onBtnClick()
-                dismiss()
-            }
+        binding.btn.setOnClickListener {
+            _builderConfig.onBtnClick()
+            dismiss()
         }
     }
 
 
     fun setBtnText(text: String) {
-        if (::binding.isInitialized) {
-            binding.btn.text = text
-        } else {
-            _builderConfig.btnText = text
-        }
+        _builderConfig.btnText = text
     }
 
 
@@ -65,23 +60,10 @@ class OnlyBtnDialogFragment : BaseCenterDialogFragment() {
 
 
     inner class Builder() {
-
         var btnText: String = ""
 
         //不能直接在Build里面设置dismiss，因为fragmentManager 还没初始化
         var onBtnClick: () -> Unit = {
-
-        }
-
-        fun setBtnText(content: String): Builder {
-            this.btnText = content
-            return this
-        }
-
-
-        fun setOnClickListener(onLick: () -> Unit): Builder {
-            onBtnClick = onLick
-            return this
         }
 
         fun create(): OnlyBtnDialogFragment {
