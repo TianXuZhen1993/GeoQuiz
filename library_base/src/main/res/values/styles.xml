@@ -50,8 +50,8 @@
 
     <!--默认按钮显示效果，蓝底白字-->
     <style name="btn_default">
-        <item name="android:background">@color/button_bg_default</item>
-        <item name="android:textColor">@color/button_text_color_default</item>
+        <item name="android:background">@color/button_bg_theme</item>
+        <item name="android:textColor">@color/button_text_white</item>
     </style>
 
     <style name="btn_default.ripple">

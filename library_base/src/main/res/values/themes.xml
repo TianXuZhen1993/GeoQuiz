@@ -65,10 +65,10 @@
     </style>
 
 
-    <style name="Theme.GeoQuiz.Fullscreen" parent="Theme.GeoQuiz">
-        <item name="android:actionBarStyle">@style/Widget.Theme.GeoQuiz.ActionBar.Fullscreen</item>
-        <item name="android:windowActionBarOverlay">true</item>
-        <item name="android:windowBackground">@null</item>
-    </style>
+<!--    <style name="Theme.GeoQuiz.Fullscreen" parent="Theme.GeoQuiz">-->
+<!--        <item name="android:actionBarStyle">@style/Widget.Theme.GeoQuiz.ActionBar.Fullscreen</item>-->
+<!--        <item name="android:windowActionBarOverlay">true</item>-->
+<!--        <item name="android:windowBackground">@null</item>-->
+<!--    </style>-->
 
 </resources>

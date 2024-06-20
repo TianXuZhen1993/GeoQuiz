@@ -1,12 +1,10 @@
 package com.example.library_base.expand_fun
 
 import android.Manifest
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.library_base.utils.IntentUtils
 
 /**
  * 手机功能相关扩展方法：拨打电话
@@ -22,8 +20,7 @@ import com.example.library_base.utils.IntentUtils
  * @param phoneNumber 电话号码
  */
 fun ComponentActivity.callNumber(phoneNumber: String) {
-    val launcherPermission =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+    val launcherPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
             if (granted) {
                 val intent = Intent(Intent.ACTION_CALL).apply {
                     data = Uri.parse("tel:$phoneNumber")

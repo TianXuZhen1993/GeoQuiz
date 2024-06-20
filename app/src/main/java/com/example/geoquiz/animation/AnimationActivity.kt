@@ -22,5 +22,7 @@ class AnimationActivity : BaseActivity() {
 
     private fun initView() {
         val animationDrawable = AnimationDrawable()
+//        animationDrawable.addFrame(AppCompatResources.getDrawable(this, R.drawable.img1)!!, 50)
+//        animationDrawable.addFrame(AppCompatResources.getDrawable(this,R.drawable.img2)!!,50)
     }
 }

@@ -13,8 +13,12 @@
     <color name="tv_label_default">#757575</color>
 
     <!--    按钮默认颜色-->
-    <color name="button_bg_default">@color/theme_color</color>
-    <color name="button_text_color_default">@color/white</color>
+    <color name="button_bg_white">@android:color/white</color>
+    <color name="button_bg_theme">@color/theme_color</color>
+    <color name="button_text_white">@android:color/white</color>
+    <color name="button_text_theme">@color/theme_color</color>
+
+
     <color name="button_pressed">@color/theme_color</color>
     <color name="button_sure">@color/theme_color</color>
     <color name="button_cancel">#C6C6C6</color>
@@ -23,6 +27,5 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorAccent">#D81B60</color>
 
-    <!--    纯色-->
     <color name="white">#FFFFFF</color>
 </resources>
