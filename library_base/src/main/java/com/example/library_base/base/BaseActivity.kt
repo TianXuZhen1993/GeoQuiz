@@ -8,5 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
  * @date: created by 2024/5/11 22:21
  */
 abstract class BaseActivity : AppCompatActivity() {
-
+    override fun onResume() {
+        super.onResume()
+    }
 }

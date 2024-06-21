@@ -63,10 +63,8 @@
             android:name=".test.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.GeoQuiz">
-
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
-
 
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
