@@ -1,6 +1,8 @@
 package com.example.library_base.expand_fun
 
-<<<<<<< HEAD
+import android.Manifest
+import android.content.Intent
+import android.net.Uri
 import android.provider.ContactsContract
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
@@ -33,7 +35,8 @@ fun ComponentActivity.getContacts(function: (ContactInfo) -> Unit): ActivityResu
                     contactInfo.contactName = contactName
 
                     //获取电话号码
-                    val contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID))
+                    val contactId =
+                        cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID))
                     val phone = contentResolver.query(
                         ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
                         ContactsContract.CommonDataKinds.Phone.CONTACT_ID + "=" + contactId,
@@ -59,12 +62,6 @@ fun ComponentActivity.getContacts(function: (ContactInfo) -> Unit): ActivityResu
 }
 
 data class ContactInfo(var contactName: String = "", var phoneNum: String = "")
-=======
-import android.Manifest
-import android.content.Intent
-import android.net.Uri
-import androidx.activity.ComponentActivity
-import androidx.activity.result.contract.ActivityResultContracts
 
 /**
  * 手机功能相关扩展方法：拨打电话
@@ -80,7 +77,8 @@ import androidx.activity.result.contract.ActivityResultContracts
  * @param phoneNumber 电话号码
  */
 fun ComponentActivity.callNumber(phoneNumber: String) {
-    val launcherPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+    val launcherPermission =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
             if (granted) {
                 val intent = Intent(Intent.ACTION_CALL).apply {
                     data = Uri.parse("tel:$phoneNumber")
@@ -96,4 +94,3 @@ fun ComponentActivity.callNumber(phoneNumber: String) {
         }
     launcherPermission.launch(Manifest.permission.CALL_PHONE)
 }
->>>>>>> 6e89ff6a31c74e2625d6103c5995cf1b82d8c992
