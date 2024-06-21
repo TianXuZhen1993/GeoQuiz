@@ -52,20 +52,12 @@ class OneBtnInfoDialogFragment : BaseCenterDialogFragment() {
     }
 
     fun setContent(content: String) {
-        if (::binding.isInitialized) {
-            binding.tvContent.text = content
-        } else {
-            _builderConfig.content = content
-        }
+        _builderConfig.content = content
     }
 
 
     fun setBtnOnClickListener(onClickListener: OnClickListener) {
-        if (::binding.isInitialized) {
-            binding.btn.setOnClickListener(onClickListener)
-        } else {
-            this.onClickListener = onClickListener
-        }
+        this.onClickListener = onClickListener
     }
 
 
@@ -77,26 +69,6 @@ class OneBtnInfoDialogFragment : BaseCenterDialogFragment() {
         //不能直接在Build里面设置dismiss，因为fragmentManager 还没初始化
         var onBtnClick: () -> Unit = {
 
-        }
-
-        fun setTitle(title: String): Builder {
-            this.title = title
-            return this
-        }
-
-        fun setContent(content: String): Builder {
-            this.content = content
-            return this
-        }
-
-        fun setBtnText(btnText: String): Builder {
-            this.btnText = btnText
-            return this
-        }
-
-        fun setOnClickListener(onLick: () -> Unit): Builder {
-            onBtnClick = onLick
-            return this
         }
 
         fun create(): OneBtnInfoDialogFragment {

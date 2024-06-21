@@ -1,12 +1,11 @@
 package com.example.geoquiz.crime.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.geoquiz.databinding.ListItemCrimeBinding
 import com.example.geoquiz.crime.database.Crime
+import com.example.geoquiz.databinding.ListItemCrimeBinding
 import java.util.UUID
 
 

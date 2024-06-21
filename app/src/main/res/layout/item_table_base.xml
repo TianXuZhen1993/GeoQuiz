@@ -13,7 +13,7 @@
 
     <TextView
         android:id="@+id/tv_title"
-        style="@style/tv_default_title"
+        style="@style/tv_title_default"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -24,7 +24,7 @@
 
     <TextView
         android:id="@+id/tv_custom_code"
-        style="@style/tv_default_title.item_content"
+        style="@style/tv_content_default"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="@id/tv_title"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
@@ -32,7 +32,7 @@
 
     <TextView
         android:id="@+id/tv_custom_num"
-        style="@style/tv_default_title.item_content"
+        style="@style/tv_content_default"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -4,23 +4,28 @@
     <color name="theme_color">#4857BD</color>
     <!--    状态栏颜色,默认跟主题颜色保持一致-->
     <color name="colorPrimaryDark">@color/theme_color</color>
-    <!--    <color name="statusBarColor">@color/theme_color</color>-->
-    <color name="statusBarColor">#884D5DFA</color>
+    <color name="statusBarColor">@color/theme_color</color>
+    <!--    标题颜色-->
+    <color name="tv_title_default">#202020</color>
+    <!--    正文颜色-->
+    <color name="tv_text_default">#202020</color>
+    <!--    标签颜色-->
+    <color name="tv_label_default">#757575</color>
+
     <!--    按钮默认颜色-->
-    <color name="button_bg_default">@color/theme_color</color>
-    <color name="button_text_color_default">@color/white</color>
+    <color name="button_bg_white">@android:color/white</color>
+    <color name="button_bg_theme">@color/theme_color</color>
+    <color name="button_text_white">@android:color/white</color>
+    <color name="button_text_theme">@color/theme_color</color>
+
+
     <color name="button_pressed">@color/theme_color</color>
     <color name="button_sure">@color/theme_color</color>
     <color name="button_cancel">#C6C6C6</color>
-
-
-    <color name="item_tv_title">#202020</color>
-    <color name="item_tv_content">#A1A1A1</color>
 
     <!--                      分割线                         -->
     <color name="colorPrimary">#008577</color>
     <color name="colorAccent">#D81B60</color>
 
-    <!--    纯色-->
     <color name="white">#FFFFFF</color>
 </resources>
