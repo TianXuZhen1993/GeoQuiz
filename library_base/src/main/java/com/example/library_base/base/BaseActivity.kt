@@ -1,6 +1,7 @@
 package com.example.library_base.base
 
 import androidx.appcompat.app.AppCompatActivity
+import com.example.library_base.R
 
 /**
  * @author: TXZ

@@ -1,4 +1,4 @@
-package com.example.geoquiz.test
+package com.example.geoquiz.recycler
 
 /**
  *

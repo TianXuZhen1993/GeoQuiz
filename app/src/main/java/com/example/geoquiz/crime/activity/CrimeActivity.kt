@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.geoquiz.databinding.FragmentCrimeBinding
-import com.example.geoquiz.test.MainActivity
+import com.example.geoquiz.navigation.activity.MainActivity
 import com.example.library_base.expand_fun.inflateBinding
 import com.example.library_base.utils.Logger
 

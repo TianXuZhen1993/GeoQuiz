@@ -23,28 +23,38 @@
         android:theme="@style/Theme.GeoQuiz"
         tools:targetApi="31">
         <activity
+            android:name=".permission.PermissionActivity"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity
             android:name=".recycler.RecyclerViewActivity"
             android:exported="true"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
 
-        </activity>
 
-        <activity android:name=".animation.AnimationActivity"
+        </activity>
+        <activity
+            android:name=".animation.AnimationActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
 
+        </activity>
         <activity
             android:name=".statusBar.StatusBarActivity"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".crime.activity.CrimeActivity"
@@ -66,11 +76,13 @@
             android:value="812" />
 
         <activity
-            android:name=".test.MainActivity"
+            android:name=".navigation.activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.GeoQuiz">
+
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
+
 
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->

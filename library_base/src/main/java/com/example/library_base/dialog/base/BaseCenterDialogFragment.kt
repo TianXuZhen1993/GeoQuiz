@@ -2,9 +2,7 @@ package com.example.library_base.dialog.base
 
 import android.os.Bundle
 import android.view.Gravity
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.WindowManager
 import com.blankj.utilcode.util.ScreenUtils
 import com.example.library_base.R

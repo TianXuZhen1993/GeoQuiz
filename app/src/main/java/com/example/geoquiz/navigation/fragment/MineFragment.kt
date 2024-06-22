@@ -1,10 +1,10 @@
-package com.example.geoquiz.test.fragment
+package com.example.geoquiz.navigation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.geoquiz.base.BaseFragment
+import com.example.library_base.base.BaseFragment
 import com.example.geoquiz.databinding.FragmentMineBinding
 import com.example.library_base.utils.Logger
 

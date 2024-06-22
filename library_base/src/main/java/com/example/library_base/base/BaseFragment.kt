@@ -1,4 +1,4 @@
-package com.example.geoquiz.base
+package com.example.library_base.base
 
 import androidx.fragment.app.Fragment
 

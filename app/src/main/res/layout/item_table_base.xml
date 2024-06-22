@@ -7,6 +7,9 @@
     android:layout_marginStart="16dp"
     android:layout_marginTop="16dp"
     android:layout_marginEnd="16dp"
+    android:paddingTop="16dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
     android:background="@color/white"
     android:elevation="5dp"
     tools:background="#EDEDED">
@@ -14,10 +17,6 @@
     <TextView
         android:id="@+id/tv_title"
         style="@style/tv_title_default"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="上海恩友商标织造有限公司" />
@@ -42,12 +41,13 @@
 
     <Button
         android:id="@+id/btn_edit"
-        style="@style/btn_default.item_base_table_edit"
+        style="@style/button_white_default.r8"
         android:layout_width="60dp"
         android:layout_height="28dp"
-        android:layout_margin="16dp"
+        android:layout_marginBottom="16dp"
         android:text="编辑"
+        android:textColor="@color/theme_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

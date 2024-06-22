@@ -77,12 +77,12 @@ androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version
 
 
 [bundles]
-activityGroup = ["activity", "activity-ktx"]
-fragmentGroup = ["fragment", "fragment-ktx", "fragment-testing"]
-roomGroup = ["room-runtime", "room-testing"]
-lifecycleGroup = ["lifecycle-runtime", "lifecycle-liveData"]
-navgationGroup = ["navgation_fragment", "navgation_ui"]
-smartRefreshGroup = ["smart_refresh", "smart_refresh_header"]
+activity_group = ["activity", "activity-ktx"]
+fragment_group = ["fragment", "fragment-ktx", "fragment-testing"]
+room_group = ["room-runtime", "room-testing"]
+lifecycle_group = ["lifecycle-runtime", "lifecycle-liveData"]
+navgation_group = ["navgation_fragment", "navgation_ui"]
+smart_refresh_group = ["smart_refresh", "smart_refresh_header"]
 
 [plugins]
 application = { id = "com.android.application", version.ref = "agp" }

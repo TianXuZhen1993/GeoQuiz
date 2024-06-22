@@ -22,7 +22,7 @@
 
 
         <!-- 一般控件的选中效果默认采用该颜色,如 CheckBox,RadioButton,SwitchCompat，ProcessBar等-->
-        <item name="colorAccent">@color/colorAccent</item>
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
         <!-- hide title bar -->
         <item name="windowNoTitle">true</item>
         <!-- WindowBackground，可以设置@drawable，颜色引用（@color），不能设置颜色值（#fffffff），

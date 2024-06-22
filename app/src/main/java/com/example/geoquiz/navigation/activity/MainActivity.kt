@@ -1,4 +1,4 @@
-package com.example.geoquiz.test
+package com.example.geoquiz.navigation.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,9 +6,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding
-import com.example.geoquiz.test.fragment.HomeFragment
-import com.example.geoquiz.test.fragment.MineFragment
-import com.example.geoquiz.test.fragment.WorkFragment
+import com.example.geoquiz.navigation.fragment.HomeFragment
+import com.example.geoquiz.navigation.fragment.MineFragment
+import com.example.geoquiz.navigation.fragment.WorkFragment
 import com.example.library_base.base.BaseActivity
 import com.example.library_base.utils.Logger
 import com.example.library_base.expand_fun.inflateBinding

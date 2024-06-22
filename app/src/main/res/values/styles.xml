@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--    基本表模块-->
-    <style name="btn_default.item_base_table_edit">
-        <item name="android:background">@drawable/ripple_btn_bg_item_edit</item>
-    </style>
-
     <!--    虚线-->
     <style name="dotted_line_style">
         <item name="android:layout_width">match_parent</item>

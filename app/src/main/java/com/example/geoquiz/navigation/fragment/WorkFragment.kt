@@ -1,10 +1,10 @@
-package com.example.geoquiz.test.fragment
+package com.example.geoquiz.navigation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.geoquiz.base.BaseFragment
+import com.example.library_base.base.BaseFragment
 import com.example.geoquiz.databinding.FragmentCrimeBinding
 import com.example.library_base.utils.Logger
 
@@ -25,6 +25,7 @@ class WorkFragment : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Logger.d(TAG, "onCreateView: ");
         val binding = FragmentCrimeBinding.inflate(inflater, container, false)
+//        resources.getString(R.string.)
         return binding.root
     }
 

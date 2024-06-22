@@ -18,5 +18,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "GeoQuiz"
 include(":app")
-include(":library_http")
 include(":library_base")
