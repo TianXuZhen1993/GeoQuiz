@@ -4,42 +4,47 @@ import android.Manifest
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityPermissionBinding
 import com.example.library_base.expand_fun.inflateBinding
-import com.example.library_base.expand_fun.setFunScreen
 import com.example.library_base.expand_fun.toast
-import com.example.library_base.permission.PermissionInfoDialog
-import com.example.library_base.permission.PermissionInfoLauncher
-import com.example.library_base.permission.PermissionLauncher
+import com.example.library_base.permission.PermissionInfoSetBackLauncher
 
 class PermissionActivity : AppCompatActivity() {
     private val binding: ActivityPermissionBinding by inflateBinding()
-    private val callPermission = PermissionInfoLauncher(Manifest.permission.CALL_PHONE) {
-        callNum()
+    private val readPermission = PermissionInfoSetBackLauncher(Manifest.permission.READ_CONTACTS) {
+        "读取联系人信息".toast()
+    }.apply {
+        infoRes = com.example.library_base.R.string.permission_info_call
     }
 
-    private fun callNum() {
-        "拨打电话".toast()
-    }
+    private val writePermission =
+        PermissionInfoSetBackLauncher(Manifest.permission.WRITE_CONTACTS) {
+            "写入联系人信息".toast()
+        }.apply {
+            infoRes = com.example.library_base.R.string.permission_info_call
+        }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
-        lifecycle.addObserver(callPermission)
-        val permissionInfoDialog = PermissionInfoDialog()
-        binding.btnCall.setOnClickListener {
-            callPermission.request()
-//            permissionInfoDialog.show(supportFragmentManager)
+        lifecycle.addObserver(readPermission)
+        lifecycle.addObserver(writePermission)
+
+
+
+        binding.btnReadContacts.setOnClickListener {
+            readPermission.request(this)
+        }
+        binding.btnWriteContacts.setOnClickListener {
+            writePermission.request(this)
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        lifecycle.removeObserver(callPermission)
+        lifecycle.removeObserver(readPermission)
     }
 
 }

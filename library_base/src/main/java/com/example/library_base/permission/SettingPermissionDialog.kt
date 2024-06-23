@@ -7,6 +7,7 @@ import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
 import com.example.library_base.databinding.DialogSettingPermissionBinding
 import com.example.library_base.dialog.base.BaseCenterDialogFragment
 
@@ -47,7 +48,11 @@ class SettingPermissionDialog : BaseCenterDialogFragment() {
         intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
         val uri = Uri.fromParts("package", requireContext().packageName, null)
         intent.setData(uri)
-        startActivity(intent)
+        if (_builderConfig.launcher != null) {
+            _builderConfig.launcher?.launch(intent)
+        } else {
+            startActivity(intent)
+        }
     }
 
 
@@ -64,6 +69,8 @@ class SettingPermissionDialog : BaseCenterDialogFragment() {
         var onCancelClick: () -> Unit = {
 
         }
+
+        var launcher: ActivityResultLauncher<Intent>? = null
 
         fun create(): SettingPermissionDialog {
             return SettingPermissionDialog().apply {
