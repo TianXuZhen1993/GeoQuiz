@@ -25,9 +25,7 @@ class OneBtnInfoDialogFragment : BaseCenterDialogFragment() {
     private lateinit var onClickListener: OnClickListener
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = DialogOneBtnBinding.inflate(inflater, container, false)
         if (_builderConfig.content.isEmpty()) {
@@ -65,7 +63,6 @@ class OneBtnInfoDialogFragment : BaseCenterDialogFragment() {
         var title = "提示"
         var content: String = ""
         var btnText: String = "确认"
-
         //不能直接在Build里面设置dismiss，因为fragmentManager 还没初始化
         var onBtnClick: () -> Unit = {
 

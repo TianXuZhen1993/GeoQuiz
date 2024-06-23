@@ -1,0 +1,5 @@
+<resources>
+    <string name="permission_info">此功能需要如下权限，才能为您提供服务</string>
+    <string name="permission_show">当前权限被拒绝，若要使用此功能，烦请同意权限</string>
+    <string name="permission_setting">权限已被拒绝，若要使用此功能，烦请进入【权限管理】，手动开启权限</string>
+</resources>
