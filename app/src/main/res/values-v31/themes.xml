@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--    <style name="SplashScreen" parent="Theme.GeoQuiz">-->
+<!--        <item name="android:windowBackground">@drawable/girl</item>-->
+<!--        <item name="android:windowDisablePreview">true</item>-->
+<!--        <item name="android:windowSplashScreenBackground">@android:color/white</item>-->
+<!--        <item name="android:windowSplashScreenAnimatedIcon">@drawable/girl</item>-->
+<!--        <item name="android:windowSplashScreenAnimationDuration">200</item>-->
+<!--        <item name="android:windowSplashScreenBrandingImage">@drawable/img1</item>-->
+<!--    </style>-->
+
+    <style name="SplashScreen" parent="Theme.GeoQuiz">
+        <item name="android:windowSplashScreenBackground">@android:color/white</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/girl</item>
+        <item name="android:windowSplashScreenAnimationDuration">200</item>
+
+    </style>
+</resources>

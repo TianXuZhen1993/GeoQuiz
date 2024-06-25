@@ -2,6 +2,8 @@ package com.example.geoquiz.animation
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.window.SplashScreen
+import android.window.SplashScreenView
 import com.example.geoquiz.databinding.ActivityAnimationBinding
 import com.example.library_base.base.BaseActivity
 import com.example.library_base.expand_fun.inflateBinding

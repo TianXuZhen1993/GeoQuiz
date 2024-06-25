@@ -2,12 +2,13 @@ package com.example.geoquiz.permission
 
 import android.Manifest
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.window.SplashScreen
 import androidx.appcompat.app.AppCompatActivity
 import com.example.geoquiz.databinding.ActivityPermissionBinding
 import com.example.library_base.expand_fun.inflateBinding
 import com.example.library_base.expand_fun.toast
 import com.example.library_base.permission.PermissionInfoSetBackLauncher
+
 
 class PermissionActivity : AppCompatActivity() {
     private val binding: ActivityPermissionBinding by inflateBinding()
@@ -27,12 +28,9 @@ class PermissionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(binding.root)
         lifecycle.addObserver(readPermission)
         lifecycle.addObserver(writePermission)
-
-
 
         binding.btnReadContacts.setOnClickListener {
             readPermission.request(this)

@@ -22,12 +22,12 @@
 
 
         <!-- 一般控件的选中效果默认采用该颜色,如 CheckBox,RadioButton,SwitchCompat，ProcessBar等-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
+        <!--        <item name="colorAccent">@color/colorAccent</item>-->
         <!-- hide title bar -->
         <item name="windowNoTitle">true</item>
         <!-- WindowBackground，可以设置@drawable，颜色引用（@color），不能设置颜色值（#fffffff），
         Window区域说明：Window涵盖整个屏幕显示区域，包括StatusBar的区域。当windowOverscan=false时，window的区域比Activity多出StatusBar，当windowOverscan=true时，window区域与Activity相同-->
-<!--        <item name="android:windowBackground">@drawable/ic_launcher_background</item>-->
+        <!--        <item name="android:windowBackground">@drawable/ic_launcher_background</item>-->
         <!--<item name="android:windowBackground">@color/light_purple</item>-->
 
         <!-- 控件相关 -->
@@ -61,14 +61,13 @@
 
     <!--    项目主题-->
     <style name="Theme.GeoQuiz" parent="Theme.AppCompat.Light.NoActionBar">
-
     </style>
 
 
-<!--    <style name="Theme.GeoQuiz.Fullscreen" parent="Theme.GeoQuiz">-->
-<!--        <item name="android:actionBarStyle">@style/Widget.Theme.GeoQuiz.ActionBar.Fullscreen</item>-->
-<!--        <item name="android:windowActionBarOverlay">true</item>-->
-<!--        <item name="android:windowBackground">@null</item>-->
-<!--    </style>-->
+    <!--    <style name="Theme.GeoQuiz.Fullscreen" parent="Theme.GeoQuiz">-->
+    <!--        <item name="android:actionBarStyle">@style/Widget.Theme.GeoQuiz.ActionBar.Fullscreen</item>-->
+    <!--        <item name="android:windowActionBarOverlay">true</item>-->
+    <!--        <item name="android:windowBackground">@null</item>-->
+    <!--    </style>-->
 
 </resources>

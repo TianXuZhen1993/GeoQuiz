@@ -53,6 +53,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.core.splash)
     implementation(project(mapOf("path" to ":library_base")))
     implementation(libs.appcompat)
     implementation(libs.material)
