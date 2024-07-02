@@ -1,4 +1,4 @@
-package com.example.library_base.permission
+package com.example.library_base.permission.dialog
 
 import android.content.Intent
 import android.net.Uri
@@ -29,12 +29,12 @@ class SettingPermissionDialog : BaseCenterDialogFragment() {
             tvTitle.text = _builderConfig.title
             tvContent.text = _builderConfig.content
             tvCancel.text = _builderConfig.tvCancel
-            tvSure.text = _builderConfig.tvSure
+            tvSetting.text = _builderConfig.tvSure
             tvCancel.setOnClickListener {
                 _builderConfig.onCancelClick()
                 dismiss()
             }
-            tvSure.setOnClickListener {
+            tvSetting.setOnClickListener {
                 goSetting()
                 dismiss()
             }

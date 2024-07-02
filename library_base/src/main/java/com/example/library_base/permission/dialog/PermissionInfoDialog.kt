@@ -1,14 +1,12 @@
-package com.example.library_base.permission
+package com.example.library_base.permission.dialog
 
-import android.Manifest
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
 import com.example.library_base.databinding.DialogPermissionInfoBinding
 import com.example.library_base.dialog.base.BaseTopDialogFragment
-import com.example.library_base.expand_fun.toast
+
 
 /**
  * 显示权限的提示内容

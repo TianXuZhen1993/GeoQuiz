@@ -2,12 +2,12 @@ package com.example.geoquiz.permission
 
 import android.Manifest
 import android.os.Bundle
-import android.window.SplashScreen
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.geoquiz.databinding.ActivityPermissionBinding
 import com.example.library_base.expand_fun.inflateBinding
 import com.example.library_base.expand_fun.toast
-import com.example.library_base.permission.PermissionInfoSetBackLauncher
+import com.example.library_base.permission.launcher.PermissionInfoSetBackLauncher
 
 
 class PermissionActivity : AppCompatActivity() {
@@ -28,6 +28,7 @@ class PermissionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         setContentView(binding.root)
         lifecycle.addObserver(readPermission)
         lifecycle.addObserver(writePermission)
@@ -43,6 +44,8 @@ class PermissionActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         lifecycle.removeObserver(readPermission)
-    }
 
+    }
 }
+
+

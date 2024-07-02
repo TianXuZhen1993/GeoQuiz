@@ -92,23 +92,23 @@ object IntentUtils {
     }
 
 
-    /**
-     * 直接发送短信
-     *
-     * @param application
-     * @param phoneNumber
-     * @param message
-     */
-    @RequiresPermission(SEND_SMS)
-    fun sendSMS(application: Application, phoneNumber: String, message: String) {
-        val smsManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            val defaultSmsSubscriptionId = SubscriptionManager.getDefaultSmsSubscriptionId()
-            application.getSystemService(SmsManager::class.java).createForSubscriptionId(defaultSmsSubscriptionId)
-        } else {
-            application.getSystemService(SmsManager::class.java)
-        }
-        smsManager.sendTextMessage(phoneNumber, null, message, null, null)
-    }
+//    /**
+//     * 直接发送短信
+//     *
+//     * @param application
+//     * @param phoneNumber
+//     * @param message
+//     */
+//    @RequiresPermission(SEND_SMS)
+//    fun sendSMS(application: Application, phoneNumber: String, message: String) {
+//        val smsManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+//            val defaultSmsSubscriptionId = SubscriptionManager.getDefaultSmsSubscriptionId()
+//            application.getSystemService(SmsManager::class.java).createForSubscriptionId(defaultSmsSubscriptionId)
+//        } else {
+//            application.getSystemService(SmsManager::class.java)
+//        }
+//        smsManager.sendTextMessage(phoneNumber, null, message, null, null)
+//    }
 
 
     /**

@@ -1,12 +1,15 @@
 package com.example.library_base.expand_fun
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
+import android.location.LocationManager
 import android.net.Uri
 import android.provider.ContactsContract
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.location.LocationManagerCompat
 
 /**
  *
@@ -15,6 +18,20 @@ import androidx.activity.result.contract.ActivityResultContracts
  * @version 1.0
  * @date 2024/6/19 13:32
  */
+
+
+
+/**
+ * 检查定位服务是否开启
+ *
+ * @return
+ */
+fun ComponentActivity.locationServiceIsOpen(): Boolean {
+    val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+    // LocationManagerCompat 是辅助工具类，兼容之前的版本
+    return LocationManagerCompat.isLocationEnabled(locationManager)
+}
+
 
 /**
  * 获取客户的手机号码 与 名称

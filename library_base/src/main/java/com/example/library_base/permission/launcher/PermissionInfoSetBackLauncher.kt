@@ -1,4 +1,4 @@
-package com.example.library_base.permission
+package com.example.library_base.permission.launcher
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -7,11 +7,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.example.library_base.R
 import com.example.library_base.dialog.common.OneBtnInfoDialogFragment
+import com.example.library_base.permission.dialog.PermissionInfoDialog
+import com.example.library_base.permission.dialog.SettingPermissionDialog
 import com.example.library_base.utils.CoreUtils
 
 /**
@@ -20,18 +21,17 @@ import com.example.library_base.utils.CoreUtils
  * @date: created by 2024/6/23 13:48
  */
 class PermissionInfoSetBackLauncher(
-    private val permission: String,
-    private val function: () -> Unit
+    private val permission: String, private val function: () -> Unit
 ) : DefaultLifecycleObserver {
 
     @StringRes
-    var infoRes: Int = R.string.permission_info
+    var infoRes: Int = R.string.permission_refuse_info_default
 
     @StringRes
-    var showRes: Int = R.string.permission_show
+    var showRes: Int = R.string.permission_refuse_info_default
 
     @StringRes
-    var setRes: Int = R.string.permission_setting
+    var setRes: Int = R.string.permission_set_default
 
     private lateinit var permissionLauncher: ActivityResultLauncher<String>
 
