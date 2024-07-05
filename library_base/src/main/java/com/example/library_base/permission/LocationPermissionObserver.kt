@@ -25,9 +25,9 @@ import com.example.library_base.utils.CoreUtils
  * @version 1.0
  * @date 2024/7/2 10:29
  */
-class LocationPermissionLauncher(private val location: () -> Unit) : DefaultLifecycleObserver {
+class LocationPermissionObserver(private val location: () -> Unit) : DefaultLifecycleObserver {
 
-    private val permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
+    private val permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION)
 
     @StringRes
     var infoRes: Int = R.string.location_service_refuse

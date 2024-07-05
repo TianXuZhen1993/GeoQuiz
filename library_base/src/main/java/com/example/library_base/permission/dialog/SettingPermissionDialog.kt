@@ -56,7 +56,7 @@ class SettingPermissionDialog : BaseCenterDialogFragment() {
     }
 
 
-    class Builder() {
+    class Builder {
 
         var title: String = ""
 

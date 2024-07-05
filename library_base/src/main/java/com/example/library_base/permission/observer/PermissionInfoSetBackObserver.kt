@@ -1,25 +1,31 @@
-package com.example.library_base.permission.launcher
+package com.example.library_base.permission.observer
 
+import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.example.library_base.R
 import com.example.library_base.dialog.common.OneBtnInfoDialogFragment
+import com.example.library_base.permission.dialog.PermissionInfoDialog
 import com.example.library_base.permission.dialog.SettingPermissionDialog
+import com.example.library_base.utils.CoreUtils
 
 /**
- * 默认单个权限设置
  * @author: TXZ
  * @version: 1.0
- * @date: created by 2024/6/22 17:38
+ * @date: created by 2024/6/23 13:48
  */
-class PermissionDefaultLauncher(private val permission: String, private val function: () -> Unit) :
-    DefaultLifecycleObserver {
+class PermissionInfoSetBackObserver(
+    private val permission: String, private val function: () -> Unit
+) : DefaultLifecycleObserver {
 
-    private lateinit var permissionLauncher: ActivityResultLauncher<String>
+    @StringRes
+    var infoRes: Int = R.string.permission_refuse_info_default
 
     @StringRes
     var showRes: Int = R.string.permission_refuse_info_default
@@ -27,12 +33,31 @@ class PermissionDefaultLauncher(private val permission: String, private val func
     @StringRes
     var setRes: Int = R.string.permission_set_default
 
+    private lateinit var permissionLauncher: ActivityResultLauncher<String>
+
+    private val infoDialog: PermissionInfoDialog by lazy {
+        PermissionInfoDialog.Builder().apply {
+            content = CoreUtils.getApp().getString(infoRes)
+        }.create()
+    }
+
+    private lateinit var setLauncher: ActivityResultLauncher<Intent>
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
         when (owner) {
             is FragmentActivity -> {
-                permissionLauncher = owner.registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+                setLauncher = owner.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                        //设置界面回调
+                        if (ContextCompat.checkSelfPermission(owner, permission)
+                            == PackageManager.PERMISSION_GRANTED
+                        ) {
+                            function()
+                        }
+                    }
+                permissionLauncher =
+                    owner.registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+                        infoDialog.dismiss()
                         if (granted) {
                             //处理业务逻辑
                             function()
@@ -45,11 +70,13 @@ class PermissionDefaultLauncher(private val permission: String, private val func
                             } else {
                                 val settingDialog = SettingPermissionDialog.Builder().apply {
                                     content = owner.resources.getString(setRes)
+                                    launcher = setLauncher
                                 }.create()
                                 settingDialog.show(owner.supportFragmentManager)
                             }
                         }
                     }
+
             }
 
             else -> {
@@ -63,9 +90,15 @@ class PermissionDefaultLauncher(private val permission: String, private val func
         permissionLauncher.unregister()
     }
 
-    fun request() {
+    fun request(activity: FragmentActivity) {
+        if (ContextCompat.checkSelfPermission(activity, permission) != PackageManager.PERMISSION_GRANTED) {
+            infoDialog.show(activity.supportFragmentManager)
+        }
         if (::permissionLauncher.isInitialized) {
             permissionLauncher.launch(permission)
+        } else {
+            throw NullPointerException("${this.javaClass.name}没有添加生命周期拥有者，检查lifecycle.addObserver")
         }
+
     }
 }

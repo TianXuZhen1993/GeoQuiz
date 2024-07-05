@@ -1,9 +1,12 @@
 package com.example.library_base.permission.dialog
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import com.blankj.utilcode.util.ScreenUtils
 import com.example.library_base.databinding.DialogPermissionInfoBinding
 import com.example.library_base.dialog.base.BaseTopDialogFragment
 
@@ -38,6 +41,16 @@ class PermissionInfoDialog : BaseTopDialogFragment() {
             return PermissionInfoDialog().apply {
                 _builderConfig = this@Builder
             }
+        }
+    }
+
+    override fun setDialogWH() {
+        dialog?.window?.apply {
+            val layoutParams = attributes
+            layoutParams.width = (ScreenUtils.getScreenWidth() * 0.9f).toInt()
+            layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
+            layoutParams.gravity = Gravity.TOP
+            attributes = layoutParams
         }
     }
 }
