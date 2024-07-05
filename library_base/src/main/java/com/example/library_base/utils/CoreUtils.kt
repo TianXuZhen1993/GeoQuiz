@@ -12,13 +12,14 @@ import android.app.Application
  * created by 2024/5/17 9:27
  */
 object CoreUtils {
-    //        val app = getApplicationByReflect() ?: throw NullPointerException("reflect application failed")
+
     private val application: Application = UtilsContentProvider.application
 
     fun getApp(): Application {
         return application
     }
 
+    //val app = getApplicationByReflect() ?: throw NullPointerException("reflect application failed")
     /**
      * 通过反射获取Application实例
      *

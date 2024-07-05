@@ -8,8 +8,6 @@ import android.util.Log
 private const val TAG = "ActivityLifecycleCallBackImpl"
 
 /**
- *
- *
  * @author TXZ
  * @version 1.0
  * created by 2024/5/9 17:22
