@@ -1,6 +1,7 @@
 package com.example.library_base.utils
 
 import android.os.Build
+import com.example.library_base.utils.DateUtils.isToday
 import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
@@ -15,21 +16,14 @@ import java.util.Locale
  * @author TXZ
  * @version 1.0
  * created by 2024/6/7 11:27
+ *
+ * @see isToday 判断一个时间戳是否是今天
  */
 object DateUtils {
 
-    val defaultSimpleDateFormat: SimpleDateFormat by lazy {
-        SimpleDateFormat("yyyy/MM/dd", Locale.CHINA)
+    val defaultFormat: SimpleDateFormat by lazy {
+        SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.CHINA)
     }
-
-    val yyyy_mm_dd_SDF: SimpleDateFormat by lazy {
-        SimpleDateFormat("yyyy-MM-dd", Locale.CHINA)
-    }
-
-    val yyyymmdd_sdf: SimpleDateFormat by lazy {
-        SimpleDateFormat("yyyyMMdd", Locale.CHINA)
-    }
-
 
     /**
      * 判断是否是今天
@@ -37,19 +31,20 @@ object DateUtils {
      * @param millis
      * @return
      */
-    fun isToday(millis: Long): Boolean {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val date = Instant.ofEpochMilli(millis).atZone(ZoneId.systemDefault()).toLocalDate()
-            return date.equals(LocalDate.now())
+    fun isToday(timestamp: Long): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // 使用 java.time 包 (API 26 及以上)
+            val date = Instant.ofEpochMilli(timestamp).atZone(ZoneId.systemDefault()).toLocalDate()
+            val today = LocalDate.now()
+            date.isEqual(today)
+        } else {
+            // 使用 Calendar 类 (API 26 以下)
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = timestamp
+            val today = Calendar.getInstance()
+            calendar.get(Calendar.YEAR) == today.get(Calendar.YEAR) &&
+                    calendar.get(Calendar.DAY_OF_YEAR) == today.get(Calendar.DAY_OF_YEAR)
         }
-        val calendar = Calendar.getInstance()
-        calendar.set(Calendar.HOUR_OF_DAY, 0)
-        calendar.set(Calendar.MINUTE, 0)
-        calendar.set(Calendar.SECOND, 0)
-        calendar.set(Calendar.MILLISECOND, 0)
-        val timeInMillis0 = calendar.timeInMillis
-        calendar.add(Calendar.DATE, 1)
-        return millis >= timeInMillis0 && millis < calendar.timeInMillis
     }
 
     /**

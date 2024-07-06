@@ -16,10 +16,10 @@ class DateUtilsTest {
         Assert.assertTrue(DateUtils.isToday(Calendar.getInstance().timeInMillis))
         val calendar = Calendar.getInstance()
         calendar.add(Calendar.DATE, 1)
-        println(DateUtils.dateFormatString(calendar.time, DateUtils.defaultSimpleDateFormat))
+        println(DateUtils.dateFormatString(calendar.time, DateUtils.defaultFormat))
         Assert.assertFalse(DateUtils.isToday(calendar.timeInMillis))
         calendar.add(Calendar.DATE, -2)
-        println(DateUtils.dateFormatString(calendar.time, DateUtils.defaultSimpleDateFormat))
+        println(DateUtils.dateFormatString(calendar.time, DateUtils.defaultFormat))
         Assert.assertFalse(DateUtils.isToday(calendar.timeInMillis))
     }
 

@@ -1,12 +1,11 @@
 package com.example.geoquiz.permission
 
-import android.Manifest
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.geoquiz.databinding.ActivityPermissionBinding
 import com.example.library_base.expand_fun.inflateBinding
-import com.example.library_base.expand_fun.toast
+import com.example.library_base.utils.AppUtils
 
 
 class PermissionActivity : AppCompatActivity() {
@@ -20,7 +19,7 @@ class PermissionActivity : AppCompatActivity() {
 
 
         binding.btnReadContacts.setOnClickListener {
-
+            AppUtils.getAppActivity()
         }
         binding.btnWriteContacts.setOnClickListener {
 

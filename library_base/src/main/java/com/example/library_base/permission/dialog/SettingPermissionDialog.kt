@@ -1,15 +1,14 @@
 package com.example.library_base.permission.dialog
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import com.example.library_base.databinding.DialogSettingPermissionBinding
 import com.example.library_base.dialog.base.BaseCenterDialogFragment
+import com.example.library_base.utils.IntentUtils
 
 
 /**
@@ -44,10 +43,7 @@ class SettingPermissionDialog : BaseCenterDialogFragment() {
 
     private fun goSetting() {
         //跳转应用消息，间接打开应用权限设置-效率高
-        val intent = Intent()
-        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-        val uri = Uri.fromParts("package", requireContext().packageName, null)
-        intent.setData(uri)
+        val intent = IntentUtils.getPermissionSettingIntent(requireContext().packageName)
         if (_builderConfig.launcher != null) {
             _builderConfig.launcher?.launch(intent)
         } else {

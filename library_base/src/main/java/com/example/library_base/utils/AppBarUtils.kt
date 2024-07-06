@@ -19,7 +19,9 @@ import androidx.core.view.updateLayoutParams
  * created by 2024/6/5 11:51
  */
 object AppBarUtils {
-    val appStatusBarHeight = getStatusBarHeightByResource()
+    val appStatusBarHeight by lazy {
+        getStatusBarHeightByResource()
+    }
 
     /**
      * 通过资源文件获取，存在相对风险
