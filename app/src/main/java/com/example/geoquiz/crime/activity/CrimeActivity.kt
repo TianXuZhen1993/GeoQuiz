@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.geoquiz.databinding.FragmentCrimeBinding
-import com.example.geoquiz.navigation.activity.MainActivity
+import com.example.geoquiz.navigation.activity.NavActivity
 import com.example.library_base.expand_fun.inflateBinding
 import com.example.library_base.utils.Logger
 
@@ -19,7 +19,7 @@ class CrimeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         binding.crimeReport.setOnClickListener {
-            Intent(this@CrimeActivity, MainActivity::class.java).apply {
+            Intent(this@CrimeActivity, NavActivity::class.java).apply {
                 startActivity(this)
             }
         }

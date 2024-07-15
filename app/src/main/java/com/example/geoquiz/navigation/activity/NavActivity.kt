@@ -6,6 +6,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.geoquiz.R
 import com.example.geoquiz.databinding.ActivityMainBinding
+import com.example.geoquiz.databinding.ActivityNavBinding
 import com.example.geoquiz.navigation.fragment.HomeFragment
 import com.example.geoquiz.navigation.fragment.MineFragment
 import com.example.geoquiz.navigation.fragment.WorkFragment
@@ -13,13 +14,13 @@ import com.example.library_base.base.BaseActivity
 import com.example.library_base.utils.Logger
 import com.example.library_base.expand_fun.inflateBinding
 
-class MainActivity : BaseActivity() {
+class NavActivity : BaseActivity() {
 
     companion object {
         private const val TAG = "MainActivity"
     }
 
-    private val binding: ActivityMainBinding by inflateBinding()
+    private val binding: ActivityNavBinding by inflateBinding()
     private val fragments = mutableListOf(HomeFragment(), WorkFragment(), MineFragment())
 
     override fun onCreate(savedInstanceState: Bundle?) {
