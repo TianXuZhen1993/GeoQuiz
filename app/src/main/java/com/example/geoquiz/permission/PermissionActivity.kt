@@ -19,7 +19,7 @@ class PermissionActivity : AppCompatActivity() {
 
 
         binding.btnReadContacts.setOnClickListener {
-            AppUtils.getAppActivity()
+
         }
         binding.btnWriteContacts.setOnClickListener {
 
