@@ -1,17 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    tools:context=".MainActivity"
     tools:ignore="HardcodedText">
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/btn_crash"
+        style="@style/button_theme_default.stroke"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:background="@drawable/shape_theme_stroke_r8"
-        android:text="测试错误缓存" />
+        android:text="错误缓存" />
+
+    <Button
+        style="@style/button_theme_default.stroke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="导航栏" />
+
+    <Button
+        style="@style/button_theme_default.stroke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="权限处理" />
+
+    <Button
+        style="@style/button_theme_default.stroke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="拍照功能" />
+
+    <Button
+        style="@style/button_theme_default.stroke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="列表处理" />
+
 
 </LinearLayout>
