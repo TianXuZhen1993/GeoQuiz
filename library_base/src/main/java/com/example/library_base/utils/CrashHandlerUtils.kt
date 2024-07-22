@@ -26,9 +26,9 @@ object CrashHandlerUtils : Thread.UncaughtExceptionHandler {
         val filename = generateFileName()
         val file = File(CoreUtils.getApp().getExternalFilesDir(CRASH), filename)
         //如果crash文件不存在，就创建crash 文件夹，无需要FileProvider进行分享
-//        if (!file.parentFile!!.exists()) file.mkdir()
+        if (!file.parentFile!!.exists()) file.mkdir()
         val crashInfo = createCrash(thread, e)
-        Log.d(TAG, "uncaughtException: $crashInfo")
+
     }
 
     private fun createCrash(thread: Thread, e: Throwable): String {
