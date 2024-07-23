@@ -2,7 +2,12 @@ package com.example.library_base.utils
 
 import android.os.Build
 import android.util.Log
+import java.io.BufferedWriter
 import java.io.File
+import java.io.FileOutputStream
+import java.io.OutputStreamWriter
+import java.io.PrintWriter
+import java.nio.charset.Charset
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -16,7 +21,7 @@ object CrashHandlerUtils : Thread.UncaughtExceptionHandler {
     private const val CRASH = "crash"
     private val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
     private val fileFormat = SimpleDateFormat("yyyyMMdd", Locale.CHINA)
-    private val timeFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.CHINA)
+    private val timeFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA)
 
     fun init() {
         Thread.setDefaultUncaughtExceptionHandler(this)
@@ -28,7 +33,15 @@ object CrashHandlerUtils : Thread.UncaughtExceptionHandler {
         //如果crash文件不存在，就创建crash 文件夹，无需要FileProvider进行分享
         if (!file.parentFile!!.exists()) file.mkdir()
         val crashInfo = createCrash(thread, e)
-
+        val fileOutputStream = FileOutputStream(file, true)
+        val outputStreamWriter = OutputStreamWriter(fileOutputStream, Charset.defaultCharset())
+        val bufferedWriter = BufferedWriter(outputStreamWriter).buffered()
+        val printWriter = PrintWriter(bufferedWriter)
+        printWriter.use {
+            it.println(crashInfo)
+        }
+        printWriter.close()
+        defaultHandler?.uncaughtException(thread, e)
     }
 
     private fun createCrash(thread: Thread, e: Throwable): String {
@@ -43,6 +56,7 @@ object CrashHandlerUtils : Thread.UncaughtExceptionHandler {
         sb.appendLine("错误线程Thread：${thread.name}")
         sb.appendLine("错误线程：${e.message}")
         sb.appendLine("错误堆栈：${e.stackTraceToString()}")
+        Log.e(TAG, "程序崩溃:$sb")
         return sb.toString()
     }
 
