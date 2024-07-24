@@ -16,7 +16,7 @@ import com.example.library_base.dialog.common.OneBtnInfoDialogFragment
 import com.example.library_base.expand_fun.locationServiceIsOpen
 import com.example.library_base.permission.dialog.PermissionInfoDialog
 import com.example.library_base.permission.dialog.SettingPermissionDialog
-import com.example.library_base.utils.CoreUtils
+import com.example.library_base.core.CoreUtils
 
 /**
  *

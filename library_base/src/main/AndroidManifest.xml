@@ -3,7 +3,7 @@
 
     <application>
         <provider
-            android:name=".utils.UtilsContentProvider"
+            android:name=".core.UtilsContentProvider"
             android:authorities="com.utils"
             android:exported="false"
             android:grantUriPermissions="false" />

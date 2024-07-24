@@ -1,4 +1,4 @@
-package com.example.library_base.utils
+package com.example.library_base.core
 
 import android.app.Application
 import android.content.ContentProvider
@@ -6,6 +6,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import com.example.library_base.BuildConfig
+import com.example.library_base.utils.Logger
 
 /**
  *
@@ -13,6 +14,15 @@ import com.example.library_base.BuildConfig
  * @author TXZ
  * @version 1.0
  * created by 2024/5/17 10:50
+ *
+ *     <application>
+ *         <provider
+ *             android:name=".core.UtilsContentProvider"
+ *             android:authorities="com.utils"
+ *             android:exported="false"
+ *             android:grantUriPermissions="false" />
+ *     </application>
+ *
  */
 internal class UtilsContentProvider : ContentProvider() {
     companion object {

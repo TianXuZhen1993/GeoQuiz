@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
+import com.example.library_base.core.CoreUtils
 
 @Deprecated("调试阶段")
 object ResourceUtils {

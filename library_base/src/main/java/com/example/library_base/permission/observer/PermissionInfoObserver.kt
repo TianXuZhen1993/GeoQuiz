@@ -9,7 +9,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.example.library_base.R
 import com.example.library_base.permission.dialog.PermissionInfoDialog
 import com.example.library_base.permission.dialog.SettingPermissionDialog
-import com.example.library_base.utils.CoreUtils
+import com.example.library_base.core.CoreUtils
 
 /**
  * 请求权限的时候，同时显示请求信息 ，国内适配

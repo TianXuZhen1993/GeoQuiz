@@ -1,4 +1,4 @@
-package com.example.library_base.utils
+package com.example.library_base.core
 
 import android.annotation.SuppressLint
 import android.app.Application

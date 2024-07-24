@@ -2,6 +2,7 @@ package com.example.library_base.utils
 
 import android.content.pm.PackageManager
 import android.os.Build
+import com.example.library_base.core.CoreUtils
 import com.example.library_base.utils.AppUtils.getAppVersionCode
 import com.example.library_base.utils.AppUtils.getAppVersionName
 import com.example.library_base.utils.AppUtils.isAppInstalled
